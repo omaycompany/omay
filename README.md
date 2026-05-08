@@ -11,6 +11,7 @@ Bu klasör, `www.omay.com.tr` için ilk statik web sitesini içerir.
 - `iletisim.html`: İletişim bilgileri ve teklif formu
 - `404.html`: GitHub Pages özel hata sayfası
 - `robots.txt`, `sitemap.xml`: Arama motoru keşfi için temel dosyalar
+- `.nojekyll`: GitHub Pages'in statik dosyaları doğrudan yayınlaması için
 - `styles.css`: Responsive tasarım
 - `assets/gpu-datacenter-hero.png`: Hero görseli
 - `assets/gpu-rtx-4090.png`, `assets/gpu-a100.png`, `assets/gpu-h100.png`: Paket görselleri
