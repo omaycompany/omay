@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>İletişim | OMAY</title>
+    <meta
+      name="description"
+      content="OMAY GPU sunucu kiralama teklifleri için iletişime geçin. Adres: Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul."
+    />
+    <link rel="icon" href="assets/omay-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header inner-header" aria-label="Ana navigasyon">
+      <a class="brand" href="index.html" aria-label="OMAY ana sayfa">
+        <img src="assets/omay-logo.svg" alt="OMAY" />
+      </a>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="gpularimiz.html">GPU'larımız</a>
+        <a href="blog.html">Blog</a>
+        <a href="iletisim.html" aria-current="page">İletişim</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">İletişim</p>
+        <h1>GPU ihtiyacınızı birlikte netleştirelim</h1>
+        <p>
+          Hangi GPU'ya, ne kadar süreyle ve hangi yazılım ortamıyla ihtiyacınız olduğunu paylaşın; OMAY size proje bazlı teklif hazırlasın.
+        </p>
+      </section>
+
+      <section class="section contact-layout">
+        <div class="contact-info">
+          <article>
+            <p class="eyebrow">E-posta</p>
+            <h2>info@omay.com.tr</h2>
+            <p>Teklif, teknik uygunluk ve proje kapsamı için e-posta üzerinden iletişime geçebilirsiniz.</p>
+            <a class="button primary" href="mailto:info@omay.com.tr?subject=GPU%20sunucu%20kiralama%20talebi">E-posta Gönder</a>
+          </article>
+          <article>
+            <p class="eyebrow">Adres</p>
+            <h2>Maslak / İstanbul</h2>
+            <address>Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul</address>
+          </article>
+        </div>
+
+        <form
+          class="contact-form contact-form-standalone"
+          action="mailto:info@omay.com.tr"
+          method="post"
+          enctype="text/plain"
+        >
+          <label>
+            Ad soyad / şirket
+            <input name="Ad soyad veya şirket" type="text" autocomplete="organization" required />
+          </label>
+          <label>
+            E-posta
+            <input name="E-posta" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            İstenen GPU sınıfı
+            <select name="İstenen GPU sınıfı" required>
+              <option value="">Seçiniz</option>
+              <option>RTX 4090 / 24 GB - $699 / ay</option>
+              <option>A100 80GB - $1.440 / ay</option>
+              <option>H100 SXM5 - özel teklif</option>
+              <option>Emin değilim, öneri istiyorum</option>
+            </select>
+          </label>
+          <label>
+            Tahmini kullanım süresi
+            <select name="Tahmini kullanım süresi" required>
+              <option value="">Seçiniz</option>
+              <option>1 ay</option>
+              <option>3 ay</option>
+              <option>6 ay</option>
+              <option>12 ay</option>
+              <option>Proje bazlı / belirsiz</option>
+            </select>
+          </label>
+          <label class="full">
+            Kullanım amacı
+            <textarea name="Kullanım amacı" rows="6" placeholder="Model eğitimi, fine-tuning, inference, render veya başka bir iş yükü..." required></textarea>
+          </label>
+          <button class="button primary form-button" type="submit">Talep Gönder</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>OMAY</strong> - www.omay.com.tr</p>
+      <p>Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul</p>
+    </footer>
+  </body>
+</html>

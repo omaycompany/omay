@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="tr">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Inference İçin GPU Seçimi | OMAY Blog</title><meta name="description" content="LLM ve AI inference işleri için GPU seçerken VRAM, gecikme ve kapasite nasıl değerlendirilir?" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+  <body>
+    <header class="site-header inner-header"><a class="brand" href="../index.html"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><nav><a href="../index.html">Ana Sayfa</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a></nav></header>
+    <main class="article-main">
+      <article class="article">
+        <p class="eyebrow">Inference</p><h1>Inference İçin GPU Seçimi</h1>
+        <img class="article-image" src="../assets/gpu-rtx-4090.png" alt="RTX 4090 GPU ile inference iş yükü" />
+        <p>Inference, eğitilmiş bir modeli canlı iş yükünde çalıştırmaktır. Chatbot, sınıflandırma, görsel üretim, OCR, öneri sistemi veya embedding API gibi servisler inference kapsamına girer.</p>
+        <p>GPU seçiminde ilk soru modelin belleğe sığıp sığmadığıdır. Küçük ve quantized modeller için RTX 4090 yeterli olabilir. Daha büyük modeller veya daha yüksek eşzamanlı kullanıcı sayısı için A100 veya H100 sınıfı değerlendirilir.</p>
+        <p>Sadece VRAM değil, gecikme hedefi, batch boyutu, kullanıcı trafiği, model yükleme süresi ve API mimarisi de kapasite planını etkiler.</p>
+        <a class="button primary" href="../iletisim.html">Inference Planı İste</a>
+      </article>
+    </main>
+    <footer class="site-footer"><p><strong>OMAY</strong> - www.omay.com.tr</p><p>Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul</p></footer>
+  </body>
+</html>
