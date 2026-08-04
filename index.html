@@ -22,49 +22,61 @@
   </head>
   <body>
     <header class="site-header" aria-label="Ana navigasyon">
-      <a class="brand" href="index.html" aria-label="OMAY ana sayfa">
-        <img src="assets/omay-logo.svg" alt="OMAY" />
-      </a>
-      <nav>
-        <a href="index.html">Ana Sayfa</a>
-        <a href="gpularimiz.html">GPU'larımız</a>
-        <a href="blog.html">Blog</a>
-        <a href="iletisim.html">İletişim</a>
-      </nav>
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="OMAY ana sayfa">
+          <img src="assets/omay-logo.svg" alt="OMAY" />
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-navigation">
+          <a href="index.html" aria-current="page">Ana Sayfa</a>
+          <a href="gpularimiz.html">GPU'larımız</a>
+          <a href="blog.html">Blog</a>
+          <a href="iletisim.html">İletişim</a>
+          <a class="nav-cta" href="iletisim.html">Teklif Al</a>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-label="OMAY GPU sunucu kiralama">
-        <img
-          class="hero-image"
-          src="assets/gpu-datacenter-hero.png"
-          alt="Modern veri merkezinde GPU sunucu rafları"
-        />
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Türkiye lokasyonlu GPU altyapısı</p>
-          <h1>AI iş yükleri için proje bazlı GPU sunucu kiralama</h1>
-          <p class="hero-copy">
-            OMAY; LLM denemeleri, fine-tuning, inference, görsel üretim ve render işleri için aylık, öngörülebilir ve Türkiye odaklı GPU sunucu kapasitesi sağlar.
-          </p>
-          <div class="hero-actions" aria-label="Hızlı işlemler">
-            <a class="button primary" href="iletisim.html">Teklif Al</a>
-            <a class="button secondary" href="gpularimiz.html">GPU'ları İncele</a>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Türkiye lokasyonlu GPU altyapısı</p>
+            <h1>AI iş yükleri için proje bazlı GPU sunucu kiralama</h1>
+            <p class="hero-copy">
+              OMAY; LLM denemeleri, fine-tuning, inference, görsel üretim ve render işleri için aylık, öngörülebilir ve Türkiye odaklı GPU sunucu kapasitesi sağlar.
+            </p>
+            <div class="hero-actions" aria-label="Hızlı işlemler">
+              <a class="button primary" href="iletisim.html">Teklif Al</a>
+              <a class="button secondary" href="gpularimiz.html">GPU'ları İncele</a>
+            </div>
+            <dl class="hero-metrics" aria-label="Hizmet özetleri">
+              <div>
+                <dt>24-72 saat</dt>
+                <dd>Standart kurulum</dd>
+              </div>
+              <div>
+                <dt>Aylık</dt>
+                <dd>Kiralama modeli</dd>
+              </div>
+              <div>
+                <dt>TR</dt>
+                <dd>Lokasyon seçeneği</dd>
+              </div>
+            </dl>
           </div>
-          <dl class="hero-metrics" aria-label="Hizmet özetleri">
-            <div>
-              <dt>24-72 saat</dt>
-              <dd>Standart kurulum</dd>
+          <div class="hero-visual">
+            <div class="hero-visual-frame">
+              <div class="visual-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img
+                class="hero-image"
+                src="assets/gpu-datacenter-hero.png"
+                alt="Modern veri merkezinde GPU sunucu rafları"
+              />
             </div>
-            <div>
-              <dt>Aylık</dt>
-              <dd>Kiralama modeli</dd>
-            </div>
-            <div>
-              <dt>TR</dt>
-              <dd>Lokasyon seçeneği</dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </section>
 
@@ -185,17 +197,21 @@
         </div>
         <form
           class="contact-form"
-          action="mailto:info@omay.com.tr"
+          action="https://api.web3forms.com/submit"
           method="post"
-          enctype="text/plain"
+          data-web3forms
         >
+          <input type="hidden" name="access_key" value="4723dc64-5bfb-450e-9304-62da73f911ae" />
+          <input type="hidden" name="subject" value="OMAY GPU sunucu kiralama talebi" />
+          <input type="hidden" name="from_name" value="OMAY web sitesi" />
+          <input class="botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
           <label>
             Ad soyad / şirket
             <input name="Ad soyad veya şirket" type="text" autocomplete="organization" required />
           </label>
           <label>
             E-posta
-            <input name="E-posta" type="email" autocomplete="email" required />
+            <input name="email" type="email" autocomplete="email" required />
           </label>
           <label>
             İstenen GPU sınıfı
@@ -223,13 +239,41 @@
             <textarea name="Kullanım amacı" rows="5" placeholder="Model eğitimi, fine-tuning, inference, render veya başka bir iş yükü..." required></textarea>
           </label>
           <button class="button primary form-button" type="submit">Talep Gönder</button>
+          <p class="form-status full" role="status" aria-live="polite"></p>
         </form>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p><strong>OMAY</strong> - www.omay.com.tr</p>
-      <p>Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/omay-logo.svg" alt="OMAY" />
+          <p>Türkiye lokasyonlu GPU altyapısı</p>
+        </div>
+        <div class="footer-column">
+          <p class="footer-title">Sayfalar</p>
+          <a href="index.html">Ana Sayfa</a>
+          <a href="gpularimiz.html">GPU'larımız</a>
+          <a href="blog.html">Blog</a>
+          <a href="iletisim.html">İletişim</a>
+        </div>
+        <div class="footer-column">
+          <p class="footer-title">GPU seçenekleri</p>
+          <a href="gpularimiz.html">NVIDIA RTX 4090</a>
+          <a href="gpularimiz.html">NVIDIA A100 80GB</a>
+          <a href="gpularimiz.html">NVIDIA H100 SXM5</a>
+        </div>
+        <div class="footer-column footer-contact">
+          <p class="footer-title">İletişim</p>
+          <a href="mailto:info@omay.com.tr">info@omay.com.tr</a>
+          <p>Büyükdere Cad. No:255<br />Maslak Sarıyer/İstanbul</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><strong>OMAY</strong> - www.omay.com.tr</p>
+        <p>GPU sunucu kiralama</p>
+      </div>
     </footer>
+    <script src="site.js" defer></script>
   </body>
 </html>
