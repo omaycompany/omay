@@ -15,7 +15,7 @@
     <title>İletişim | OMAY</title>
     <meta
       name="description"
-      content="OMAY GPU sunucu kiralama teklifleri için iletişime geçin. Adres: Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul."
+      content="OMAY yapay zeka hizmetleri için iletişime geçin. Adres: Büyükdere Cad. No:255 Maslak Sarıyer/İstanbul."
     />
     <link rel="icon" href="assets/omay-mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
@@ -31,6 +31,7 @@
         </button>
         <nav id="site-navigation">
           <a href="index.html">Ana Sayfa</a>
+          <a href="yapay-zeka-hizmetleri.html">AI Hizmetleri</a>
           <a href="gpularimiz.html">GPU'larımız</a>
           <a href="blog.html">Blog</a>
           <a href="iletisim.html" aria-current="page">İletişim</a>
@@ -42,9 +43,9 @@
     <main class="site-main">
       <section class="page-hero">
         <p class="eyebrow">İletişim</p>
-        <h1>GPU ihtiyacınızı birlikte netleştirelim</h1>
+        <h1>Yapay zeka projenizi birlikte netleştirelim</h1>
         <p>
-          Hangi GPU'ya, ne kadar süreyle ve hangi yazılım ortamıyla ihtiyacınız olduğunu paylaşın; OMAY size proje bazlı teklif hazırlasın.
+          Projenizi ve ihtiyacınızı paylaşın; OMAY size uygun yapay zeka hizmet planını hazırlasın.
         </p>
       </section>
 
@@ -54,7 +55,7 @@
             <p class="eyebrow">E-posta</p>
             <h2>info@omay.com.tr</h2>
             <p>Teklif, teknik uygunluk ve proje kapsamı için e-posta üzerinden iletişime geçebilirsiniz.</p>
-            <a class="button primary" href="mailto:info@omay.com.tr?subject=GPU%20sunucu%20kiralama%20talebi">E-posta Gönder</a>
+            <a class="button primary" href="mailto:info@omay.com.tr?subject=AI%20hizmetleri%20ileti%C5%9Fim%20talebi">E-posta Gönder</a>
           </article>
           <article>
             <p class="eyebrow">Adres</p>
@@ -70,41 +71,24 @@
           data-web3forms
         >
           <input type="hidden" name="access_key" value="4723dc64-5bfb-450e-9304-62da73f911ae" />
-          <input type="hidden" name="subject" value="OMAY GPU sunucu kiralama talebi" />
+          <input type="hidden" name="subject" value="OMAY AI hizmetleri iletişim talebi" />
           <input type="hidden" name="from_name" value="OMAY web sitesi" />
           <input class="botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
           <label>
-            Ad soyad / şirket
-            <input name="Ad soyad veya şirket" type="text" autocomplete="organization" required />
+            Ad soyad
+            <input name="Ad soyad" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            Telefon numarası
+            <input name="Telefon numarası" type="tel" autocomplete="tel" inputmode="tel" required />
           </label>
           <label>
             E-posta
             <input name="email" type="email" autocomplete="email" required />
           </label>
-          <label>
-            İstenen GPU sınıfı
-            <select name="İstenen GPU sınıfı" required>
-              <option value="">Seçiniz</option>
-              <option>RTX 4090 / 24 GB - $699 / ay</option>
-              <option>A100 80GB - $1.440 / ay</option>
-              <option>H100 SXM5 - özel teklif</option>
-              <option>Emin değilim, öneri istiyorum</option>
-            </select>
-          </label>
-          <label>
-            Tahmini kullanım süresi
-            <select name="Tahmini kullanım süresi" required>
-              <option value="">Seçiniz</option>
-              <option>1 ay</option>
-              <option>3 ay</option>
-              <option>6 ay</option>
-              <option>12 ay</option>
-              <option>Proje bazlı / belirsiz</option>
-            </select>
-          </label>
           <label class="full">
-            Kullanım amacı
-            <textarea name="Kullanım amacı" rows="6" placeholder="Model eğitimi, fine-tuning, inference, render veya başka bir iş yükü..." required></textarea>
+            Mesajınız
+            <textarea name="Mesajınız" rows="6" placeholder="Projenizi, ihtiyacınızı veya sormak istediğiniz konuyu yazabilirsiniz." required></textarea>
           </label>
           <button class="button primary form-button" type="submit">Talep Gönder</button>
           <p class="form-status full" role="status" aria-live="polite"></p>
@@ -114,9 +98,9 @@
 
     <footer class="site-footer">
       <div class="footer-grid">
-        <div class="footer-brand"><img src="assets/omay-logo.svg" alt="OMAY" /><p>Türkiye lokasyonlu GPU altyapısı</p></div>
-        <div class="footer-column"><p class="footer-title">Sayfalar</p><a href="index.html">Ana Sayfa</a><a href="gpularimiz.html">GPU'larımız</a><a href="blog.html">Blog</a><a href="iletisim.html">İletişim</a></div>
-        <div class="footer-column"><p class="footer-title">GPU seçenekleri</p><a href="gpularimiz.html">NVIDIA RTX 4090</a><a href="gpularimiz.html">NVIDIA A100 80GB</a><a href="gpularimiz.html">NVIDIA H100 SXM5</a></div>
+        <div class="footer-brand"><img src="assets/omay-logo.svg" alt="OMAY" /><p>Türkiye lokasyonlu GPU ve yapay zeka altyapısı</p></div>
+        <div class="footer-column"><p class="footer-title">Sayfalar</p><a href="index.html">Ana Sayfa</a><a href="yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="gpularimiz.html">GPU'larımız</a><a href="blog.html">Blog</a><a href="iletisim.html">İletişim</a></div>
+        <div class="footer-column"><p class="footer-title">GPU ve AI</p><a href="yapay-zeka-hizmetleri.html">AI Platform as a Service</a><a href="yapay-zeka-hizmetleri.html">LLM as a Service</a><a href="gpularimiz.html">NVIDIA RTX 4090</a><a href="gpularimiz.html">NVIDIA A100 80GB</a><a href="gpularimiz.html">NVIDIA H100 SXM5</a></div>
         <div class="footer-column footer-contact"><p class="footer-title">İletişim</p><a href="mailto:info@omay.com.tr">info@omay.com.tr</a><p>Büyükdere Cad. No:255<br />Maslak Sarıyer/İstanbul</p></div>
       </div>
       <div class="footer-bottom"><p><strong>OMAY</strong> - www.omay.com.tr</p><p>GPU sunucu kiralama</p></div>

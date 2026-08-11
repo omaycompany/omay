@@ -5,6 +5,7 @@ Bu klasör, `www.omay.com.tr` için ilk statik web sitesini içerir.
 ## Dosyalar
 
 - `index.html`: Ana sayfa
+- `yapay-zeka-hizmetleri.html`: AI Platform, LLM, GPU ve Yönetilen LLM hizmetleri
 - `gpularimiz.html`: GPU seçenekleri ve kullanım detayları
 - `blog.html`: Blog liste sayfası
 - `blog/`: 10 adet güven veren blog yazısı

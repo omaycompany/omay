@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Türkiye AI ve GPU Pazar Araştırması | OMAY</title>
+  <meta name="description" content="11 Ağustos 2025 - 11 Ağustos 2026 döneminde Türkiye'de küçük ve orta ölçekli AI ve GPU hizmeti oyuncularının ürün gamı, kanıtları ve OMAY için çıkarımlar." />
+  <link rel="icon" href="assets/omay-mark.svg" />
+  <style>
+    :root {
+      --ink: #16202d;
+      --muted: #5e6b7b;
+      --line: #dfe6ed;
+      --soft: #f4f7fa;
+      --blue: #1d5fd1;
+      --navy: #0f2847;
+      --green: #19734a;
+      --amber: #9a5b00;
+      --shadow: 0 14px 40px rgba(17, 42, 74, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fbfcfe;
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      color: #fff;
+      background: linear-gradient(135deg, #102b4d 0%, #174b80 55%, #2072b3 100%);
+      padding: 72px 0 64px;
+    }
+    .eyebrow { margin: 0 0 14px; color: #bfe0ff; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3 { line-height: 1.2; }
+    h1 { max-width: 880px; margin: 0; font-size: clamp(34px, 5vw, 62px); letter-spacing: -.04em; }
+    .lead { max-width: 820px; margin: 22px 0 0; color: #e4f1ff; font-size: 19px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .pill { display: inline-flex; padding: 7px 12px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #f5fbff; font-size: 13px; }
+    main { padding: 54px 0 76px; }
+    section { margin: 0 0 56px; }
+    h2 { margin: 0 0 20px; color: var(--navy); font-size: clamp(25px, 3vw, 36px); letter-spacing: -.025em; }
+    h3 { margin: 0 0 8px; color: var(--navy); font-size: 20px; }
+    p { margin: 0 0 14px; }
+    .section-intro { max-width: 850px; color: var(--muted); }
+    .callout { padding: 24px 28px; border-left: 4px solid var(--blue); border-radius: 14px; background: #eef5ff; box-shadow: var(--shadow); }
+    .callout strong { color: var(--navy); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow); }
+    .card p:last-child { margin-bottom: 0; }
+    .tag { display: inline-flex; margin-bottom: 12px; padding: 4px 9px; border-radius: 999px; background: #e8f5ee; color: var(--green); font-size: 12px; font-weight: 750; }
+    .tag.warn { background: #fff3df; color: var(--amber); }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow); }
+    table { width: 100%; min-width: 980px; border-collapse: collapse; }
+    th, td { padding: 16px 15px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { color: #fff; background: var(--navy); font-size: 13px; letter-spacing: .02em; }
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { min-width: 150px; font-weight: 800; color: var(--navy); }
+    .evidence { color: var(--green); font-weight: 700; }
+    .uncertain { color: var(--amber); font-weight: 700; }
+    .ladder { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .step { position: relative; min-height: 180px; padding: 19px 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .step::after { content: "→"; position: absolute; top: 44%; right: -18px; color: #8ba2bb; font-size: 22px; }
+    .step:last-child::after { display: none; }
+    .number { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-bottom: 15px; border-radius: 50%; color: #fff; background: var(--blue); font-weight: 800; }
+    .recommendation { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .recommendation .card { box-shadow: none; }
+    ul { margin: 10px 0 0; padding-left: 20px; }
+    li + li { margin-top: 7px; }
+    .source-list { columns: 2; column-gap: 34px; margin: 0; padding-left: 20px; }
+    .source-list li { break-inside: avoid; margin-bottom: 8px; }
+    footer { padding: 28px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 850px) {
+      .grid, .recommendation { grid-template-columns: 1fr; }
+      .ladder { grid-template-columns: 1fr; }
+      .step { min-height: auto; }
+      .step::after { content: "↓"; top: auto; right: 50%; bottom: -24px; }
+      .source-list { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">OMAY · Türkiye AI / GPU pazar araştırması</p>
+      <h1>Hızlı çıkan küçük oyuncular GPU değil, çalışan AI sonucu satıyor.</h1>
+      <p class="lead">11 Ağustos 2025–11 Ağustos 2026 döneminde Türkiye’deki doğrudan GPU/AI altyapı oyuncularını ve kamuya açık başarı kanıtı bulunan küçük AI şirketlerini inceledim.</p>
+      <div class="meta">
+        <span class="pill">Kapsam: son 12 ay</span>
+        <span class="pill">Türkiye lokasyonu / Türkiye pazarı</span>
+        <span class="pill">Başarı kanıtı ≠ yalnızca hizmet sayfası</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="callout">
+        <strong>Yönetici özeti:</strong> Pazarın öne çıkan küçük ve orta ölçekli oyuncuları yalnızca “RTX/H100 kiralıyoruz” demiyor. Tekliflerini; deneme veya kullandığın kadar öde modeli, hazır yazılım ortamı, teknik kurulum, yerel veri/uyum mesajı ve belirli bir iş sonucuyla paketliyor. OMAY için en mantıklı çıkış; ilk günden genel bir “AI platformu” iddiası değil, <strong>GPU kapasitesi → kuruluma hazır iş yükü → yönetilen inference</strong> merdivenidir.
+      </div>
+    </section>
+
+    <section>
+      <h2>Önce kanıt standardı</h2>
+      <p class="section-intro">“Hızlı çıkış” ifadesini kesin bir pazar payı iddiası olarak kullanmadım. Aşağıdaki sınıflar, kamuya açık sinyalin niteliğini gösterir:</p>
+      <div class="grid" style="margin-top:18px">
+        <article class="card"><span class="tag">Güçlü kanıt</span><h3>Yatırım, pilot veya müşteri</h3><p>Fonlama, isimli müşteri/partner, sahadaki pilot ya da ölçülebilir teknik sonuç.</p></article>
+        <article class="card"><span class="tag">Orta kanıt</span><h3>Yeni ürün ve ekosistem sinyali</h3><p>Son 12 ayda hizmet lansmanı, etkinlik sunumu, teknoloji ortağı veya ürün kapsamının genişlemesi.</p></article>
+        <article class="card"><span class="tag warn">Dikkat</span><h3>Şirketin kendi beyanı</h3><p>“En büyük”, kullanıcı sayısı, SLA veya “dakikalar içinde” gibi iddialar bağımsız doğrulanmadıysa pazarlama beyanı olarak kaldı.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>OMAY’in mevcut tabanı</h2>
+      <p class="section-intro">Mevcut site içeriğinde OMAY; RTX 4090, A100 80GB ve H100 SXM5 sınıfı GPU kapasitesini, LLM denemeleri, fine-tuning, inference, görsel üretim ve render iş yükleri için proje bazlı sunuyor. Ayrıca AI Platform, LLM, GPU ve yönetilen LLM katmanları tanımlanmış durumda. Bu araştırmanın önerisi, bu kapsamı operasyonel olarak kanıtlanabilecek sıralı bir ürün gamına dönüştürmek.</p>
+      <p class="small" style="margin-top:12px"><a href="index.html">OMAY ana sayfasındaki mevcut teklif</a> · <a href="yapay-zeka-hizmetleri.html">AI hizmetleri sayfası</a></p>
+    </section>
+
+    <section>
+      <h2>Doğrudan karşılaştırma: küçük / orta AI-GPU oyuncuları</h2>
+      <p class="section-intro">Bu tablo rakiplerin teknik özelliklerini değil, nasıl ürünleştirdiklerini gösterir. Çalışan müşteri sonucu bulunamayan firmaları özellikle “ürün/konumlandırma sinyali” olarak işaretledim.</p>
+      <div class="table-wrap" style="margin-top:18px">
+        <table>
+          <thead><tr><th>Firma</th><th>Görünen ölçek / konum</th><th>Ürün gamı</th><th>Son 12 ay kanıtı</th><th>OMAY için ders</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>GTM Teknoloji</td>
+              <td>LinkedIn’de 11–50 çalışan; 2009’dan beri altyapı odağı.</td>
+              <td>GTM Cloud; H100/H200, RTX Pro Blackwell, DGX Spark; bare metal veya sanal GPU; MIG, Proxmox, Ceph/ZFS, InfiniBand ve danışmanlık.</td>
+              <td><span class="evidence">Orta–güçlü.</span> 2025/2026 içeriklerinde 250+ kurumsal kullanıcı ve %99,9 uptime SLA beyanı var; bunlar şirket beyanıdır.</td>
+              <td>“Test et → optimize et → aylık kirala → satın al” geçişiyle satış sürtünmesini azaltıyor. <a href="https://gtmteknoloji.com/gtm-cloud-cloud-gpu-kiralama-hizmetleri-gtm-teknoloji/" target="_blank" rel="noopener noreferrer">GTM Cloud</a></td>
+            </tr>
+            <tr>
+              <td>FixCloud</td>
+              <td>LinkedIn’de 11–50 çalışan; 2016’dan beri bulut sağlayıcı.</td>
+              <td>GH200 GPUaaS; bare metal, shared, dedicated ve farm; MIG profilleri; saatlik/günlük/aylık kullanım; PyTorch, TensorFlow, Llama, CUDA şablonları ve DevOps.</td>
+              <td><span class="evidence">Güçlü ürün lansmanı.</span> GPUaaS duyurusu 17 Ekim 2025’te yayımlandı; TRAI etkinliğinde H200 ve dakikalar içinde canlıya alma anlatıldı. İsimli GPU müşterisi bulamadım.</td>
+              <td>Self-servis erişim, hazır şablon, deneme ve tüketim bazlı fiyatı birlikte sunuyor. <a href="https://www.fixcloud.com.tr/bulut-servisleri/gpu-as-a-service-gpuaas" target="_blank" rel="noopener noreferrer">FixCloud GPUaaS</a></td>
+            </tr>
+            <tr>
+              <td>Lunabil</td>
+              <td>LinkedIn’de 2–10 çalışan; şirket sayfası 2025 kuruluşunu gösteriyor.</td>
+              <td>GPUaaS yanında DBaaS, bulut, yedekleme, DLP ve güvenlik; aylık “AI departmanı” hizmet modeli.</td>
+              <td><span class="uncertain">Erken aşama sinyali.</span> “3 ayda en az bir canlı AI uygulaması” söylemi var; isimli müşteri veya bağımsız sonuç doğrulayamadım.</td>
+              <td>GPU’yu tek başına değil, veri tabanı + güvenlik + sürekli AI ekibi şeklinde paketleme fikri değerli; sonucu kanıtlamadan vaat edilmemeli. <a href="https://lunabil.com/" target="_blank" rel="noopener noreferrer">Lunabil</a></td>
+            </tr>
+            <tr>
+              <td>AnkuryA</td>
+              <td>Resmî sitede Ankara merkezli; çalışan sayısı bağımsız doğrulanamadı.</td>
+              <td>AnkaKlinik sağlık çözümü, AnkaBulut.AI kurumsal AI platformu, GPU kiralama, AI cloud, on-prem/hybrid, RAG, MCP, Logo/Mikro/HBYS/e-Fatura entegrasyonları.</td>
+              <td><span class="evidence">Pilot sinyali.</span> Resmî sitede hastane grubu ile “anchor pilot” sahada deniyor; hastane adı ve sonuç metriği paylaşılmıyor.</td>
+              <td>Genel GPU yerine dikey çözüm + veri egemenliği + yerel entegrasyon satıyor. OMAY için ilk dikey pilot yaklaşımı buradan alınabilir. <a href="https://ankurya.com/en/index.html" target="_blank" rel="noopener noreferrer">AnkuryA</a></td>
+            </tr>
+            <tr>
+              <td>Cloud Expert</td>
+              <td>Türkiye’de hizmet veren, çalışan sayısı kamuya açık doğrulanamayan sağlayıcı.</td>
+              <td>AI Cloud/GPUaaS; A100, H100, L40, RTX6000; Jupyter, Docker, Kubernetes, saatlik/aylık kullanım, fine-tuning, inference, monitoring ve maliyet paneli.</td>
+              <td><span class="uncertain">Ürün gamı kanıtı.</span> Kamuya açık isimli müşteri veya son 12 aya ait başarı metriği bulamadım.</td>
+              <td>GPU’yu notebook, container, izleme, network izolasyonu ve maliyet kontrolüyle birlikte konumlandırıyor. <a href="https://www.cloudexpert.com.tr/yapay-zek%C3%A2-altyapisi-_ai-cloud-gpu-as-a-service_.html" target="_blank" rel="noopener noreferrer">Cloud Expert AI Cloud</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Başarı hikâyesi olarak kullanılabilecek küçük AI örnekleri</h2>
+      <p class="section-intro">Bunlar doğrudan OMAY rakibi olmak zorunda değil. Değerli tarafları, küçük ekiplerin AI’ı nasıl tek bir sonuç etrafında ürünleştirdiğini göstermeleri.</p>
+      <div class="grid" style="margin-top:18px">
+        <article class="card">
+          <span class="tag">Yatırım kanıtı · Haziran 2025</span>
+          <h3>Orbina AI: müşteri iletişimini ürünleştirdi</h3>
+          <p>11–50 çalışan olarak listelenen Orbina AI, müşteri iletişimi ve iç süreçler için Türkçe/ sektör odaklı AI ajanları geliştiriyor. Haziran 2025’te ENA Venture Capital yatırımı kamuya yansıdı.</p>
+          <p class="small muted">Ders: “AI hizmeti” yerine belirli iş akışını (müşteri destek, satış, iç operasyon) otomatikleştiren ürün ve dikey ajanlar daha anlaşılır satılıyor.</p>
+          <p class="small"><a href="https://webrazzi.com/2025/06/25/orbina-ai-ena-venture-capital-dan-yatirim-aldi/" target="_blank" rel="noopener noreferrer">Webrazzi haberi</a> · <a href="https://orbina.ai/" target="_blank" rel="noopener noreferrer">Orbina AI</a></p>
+        </article>
+        <article class="card">
+          <span class="tag">Müşteri kanıtı · devam eden ürün</span>
+          <h3>Artiwise: AI’ı kurum içi karara bağladı</h3>
+          <p>11–50 çalışan ölçeğinde görünen Artiwise; müşteri geri bildirimlerini, çağrı merkezi, sosyal medya, chatbot ve anketleri tek CXM ürününde birleştiriyor. Resmî sitesinde Migros, İş Bankası ve Halkbank gibi isimli müşteri anlatıları var.</p>
+          <p class="small muted">Ders: Kuruma “model” değil, ölçülebilir karar ve aksiyon akışı satılıyor; entegrasyon ve veri maskeleme ürünün parçası.</p>
+          <p class="small"><a href="https://artiwise.com/tr/" target="_blank" rel="noopener noreferrer">Artiwise CXM</a> · <a href="https://artiwise.com/tr/2025/07/16/musteri-deneyiminde-ai-asistanlari-cx-ekipleri-icin-yeni-takim-arkadasi/" target="_blank" rel="noopener noreferrer">2025 AI asistanı yazısı</a></p>
+        </article>
+        <article class="card">
+          <span class="tag">Yatırım + altyapı kanıtı · Mayıs 2026</span>
+          <h3>Hardal: veri katmanını AI altyapısına bağladı</h3>
+          <p>Hardal’ın resmî şirket geçmişine göre 11 Mayıs 2026’da 1,55 milyon dolar yatırım turu duyuruldu. Ürün; web, mobil ve CRM verisini birleştirip analitik, AI görünürlüğü ve ajan akışlarına bağlayan bir veri katmanı olarak konumlanıyor.</p>
+          <p class="small muted">Ders: GPU’nun yanında veri hazırlama, yönetişim, gözlemlenebilirlik ve AI’a hazır veri de ayrı bir ürün katmanı olabilir.</p>
+          <p class="small"><a href="https://usehardal.com/handbook/core-of-hardal/company-history" target="_blank" rel="noopener noreferrer">Hardal şirket geçmişi</a> · <a href="https://fintechistanbul.org/2026/05/11/yerli-veri-platformu-hardala-155-milyon-dolar-yatirim/" target="_blank" rel="noopener noreferrer">Yatırım haberi</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pazardaki ortak ürün merdiveni</h2>
+      <div class="ladder" style="margin-top:18px">
+        <article class="step"><span class="number">1</span><h3>Kapasite</h3><p class="small">GPU havuzu, bare metal, vGPU/MIG; saatlik, günlük veya aylık kullanım.</p></article>
+        <article class="step"><span class="number">2</span><h3>Hazır ortam</h3><p class="small">Jupyter, Docker, CUDA, PyTorch, Llama veya proje için kuruluma hazır çalışma alanı.</p></article>
+        <article class="step"><span class="number">3</span><h3>Model çalışma</h3><p class="small">Fine-tuning, inference, RAG, model endpoint’i ve gerektiğinde LLM API katmanı.</p></article>
+        <article class="step"><span class="number">4</span><h3>İşletim</h3><p class="small">İzleme, maliyet kontrolü, yedekleme, güncelleme penceresi, destek ve gerçek SLA.</p></article>
+        <article class="step"><span class="number">5</span><h3>Sonuç</h3><p class="small">Doküman asistanı, müşteri destek akışı, görsel/video üretimi veya kuruma özel dikey pilot.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>OMAY için önerilen ürün gamı</h2>
+      <div class="recommendation" style="margin-top:18px">
+        <div class="card">
+          <span class="tag">Hemen konumlandırılabilir</span>
+          <h3>1. OMAY GPU Başlangıç</h3>
+          <ul>
+            <li>RTX 4090, A100 80GB ve H100 sınıfı kapasiteyi iş yüküne göre eşleştirme.</li>
+            <li>“GPU deneme → performans raporu → aylık kapasite” satış akışı.</li>
+            <li>Kurulum ve ortam kapsamını teklif içinde açıkça belirtme.</li>
+          </ul>
+          <h3 style="margin-top:22px">2. OMAY AI Çalışma Alanı</h3>
+          <ul>
+            <li>Gerçekte hazır edilebilen Docker/Jupyter/PyTorch/LLM ortamlarını paketleme.</li>
+            <li>Fine-tuning, inference, görsel üretim ve Türkçe doküman/RAG için ayrı kullanım senaryoları.</li>
+            <li>İlk aşamada “self-servis platform” yerine “kurulum destekli çalışma alanı” demek daha güvenli.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag warn">Operasyon hazır olunca</span>
+          <h3>3. OMAY Managed Inference</h3>
+          <ul>
+            <li>Model endpoint’i, izleme, erişim, maliyet kontrolü ve güncelleme kapsamı.</li>
+            <li>Gerçekten sunulabilen destek saatleri ve SLA ile birlikte.</li>
+            <li>İlk dikey pilot: Türkçe kurum içi doküman asistanı veya müşteri destek asistanı.</li>
+          </ul>
+          <h3 style="margin-top:22px">Satış kanıtı hedefi</h3>
+          <ul>
+            <li>Bir isimli pilot müşteri.</li>
+            <li>Önce/sonra metriği: yanıt süresi, inference maliyeti, işlem süresi veya GPU kullanım verimi.</li>
+            <li>Kurulum süresi, erişim modeli ve destek sınırlarını gösteren tek sayfalık vaka çalışması.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Benim net kanaatim</h2>
+      <div class="callout">
+        <p><strong>OMAY’in en hızlı test edebileceği yol:</strong> GTM’nin deneme–optimizasyon–aylık kapasite mantığını, FixCloud’un hazır ortam/DevOps yaklaşımını ve AnkuryA’nın dikey pilot mantığını birleştirmek.</p>
+        <p><strong>Başlangıç ürünü:</strong> “Türkiye lokasyonlu GPU + kuruluma destekli AI çalışma alanı.”</p>
+        <p><strong>İlk satış cümlesi:</strong> “AI projeniz için hangi GPU’nun gerektiğini birlikte test ediyor, çalışan ortamı kuruyor ve iş yükünüz doğrulanınca aylık kapasiteye geçiriyoruz.”</p>
+        <p><strong>Kaçınılacak şey:</strong> Şu aşamada kanıtlanmamış “Türkiye’nin en büyük”, “%99,9 SLA”, “dakikalar içinde hazır”, “KVKK uyumlu” veya tam yönetilen LLM iddiaları.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Kaynaklar ve sınırlar</h2>
+      <p class="section-intro">Firma çalışan sayıları şirket/LinkedIn profillerindeki kamuya açık beyanlardır. SLA, kullanıcı sayısı, “en büyük” ve benzeri ticari iddialar bağımsız denetim sonucu olarak yorumlanmamalıdır. Kaynaklarda isimli müşteri ve sonuç metriği yoksa bunu başarı hikâyesi değil, ürün veya lansman sinyali olarak sınıflandırdım.</p>
+      <ol class="source-list" style="margin-top:18px">
+        <li><a href="https://gtmteknoloji.com/" target="_blank" rel="noopener noreferrer">GTM Teknoloji</a> ve <a href="https://tr.linkedin.com/company/gtm-teknoloji" target="_blank" rel="noopener noreferrer">şirket profili</a></li>
+        <li><a href="https://www.fixcloud.com.tr/bulut-servisleri/gpu-as-a-service-gpuaas" target="_blank" rel="noopener noreferrer">FixCloud GPUaaS</a> ve <a href="https://www.linkedin.com/company/fixcloud/" target="_blank" rel="noopener noreferrer">şirket profili</a></li>
+        <li><a href="https://turkiye.ai/trai-meet-up-104-veri-merkezi-bulut-ve-altyapi-donusumunda-one-cikan-basliklar/" target="_blank" rel="noopener noreferrer">TRAI Meet-Up #104</a></li>
+        <li><a href="https://lunabil.com/" target="_blank" rel="noopener noreferrer">Lunabil</a> ve <a href="https://tr.linkedin.com/company/lunabil" target="_blank" rel="noopener noreferrer">şirket profili</a></li>
+        <li><a href="https://ankurya.com/en/index.html" target="_blank" rel="noopener noreferrer">AnkuryA AI ve cloud platformu</a></li>
+        <li><a href="https://www.cloudexpert.com.tr/yapay-zek%C3%A2-altyapisi-_ai-cloud-gpu-as-a-service_.html" target="_blank" rel="noopener noreferrer">Cloud Expert AI Cloud / GPUaaS</a></li>
+        <li><a href="https://webrazzi.com/2025/06/25/orbina-ai-ena-venture-capital-dan-yatirim-aldi/" target="_blank" rel="noopener noreferrer">Orbina AI yatırım haberi</a></li>
+        <li><a href="https://artiwise.com/tr/" target="_blank" rel="noopener noreferrer">Artiwise CXM ve müşteri anlatıları</a></li>
+        <li><a href="https://usehardal.com/handbook/core-of-hardal/company-history" target="_blank" rel="noopener noreferrer">Hardal şirket geçmişi</a></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">OMAY için hazırlanmıştır · Araştırma tarihi: 11 Ağustos 2026 · Bu belge stratejik yönlendirmedir; ticari iddialar yayına alınmadan önce operasyonel olarak doğrulanmalıdır.</div>
+  </footer>
+</body>
+</html>
