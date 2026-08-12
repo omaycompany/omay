@@ -185,84 +185,6 @@
         <a class="button primary" href="#teklif">Teklif Al</a>
       </section>
 
-      <section class="section" id="paketler">
-        <div class="section-heading">
-          <p class="eyebrow">AI hizmetleri içindeki GPU katmanı</p>
-          <h2>GPU Kiralama seçenekleri</h2>
-          <p class="section-copy">
-            GPU Kiralama, AI hizmetlerimizin hesaplama katmanıdır. Fiyatlar aylık başlangıç seviyesidir; nihai teklif CPU, RAM, disk, lokasyon, kurulum kapsamı ve kullanım süresine göre netleştirilir.
-          </p>
-        </div>
-        <div class="package-grid">
-          <article class="package-card">
-            <img class="package-image" src="assets/gpu-rtx-4090.png" alt="RTX 4090 sınıfı GPU kartı" />
-            <div class="package-topline">
-              <div>
-                <p class="package-tier">Starter</p>
-                <h3>NVIDIA RTX 4090</h3>
-              </div>
-              <span>24 GB GDDR6X</span>
-            </div>
-            <p>Geliştirme, küçük model denemeleri, inference, Stable Diffusion, görsel üretim ve test ortamları için güçlü giriş paketi.</p>
-            <div class="price"><strong>$699</strong><span>/ ay</span></div>
-            <ul>
-              <li>1x RTX 4090 GPU</li>
-              <li>16.384 CUDA çekirdeği</li>
-              <li>7B parametreye kadar modeller için uygun</li>
-              <li>CUDA, PyTorch ve Docker hazır kurulum</li>
-            </ul>
-            <a class="source-link" href="https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/" target="_blank" rel="noreferrer">NVIDIA RTX 4090 ürün bilgisi</a>
-            <a class="button card-action" href="iletisim.html">Teklif Al</a>
-          </article>
-
-          <article class="package-card featured">
-            <img class="package-image" src="assets/gpu-a100.png" alt="A100 veri merkezi GPU modülü" />
-            <div class="package-topline">
-              <div>
-                <p class="package-tier">Pro</p>
-                <h3>NVIDIA A100 80GB</h3>
-              </div>
-              <span>80 GB HBM2e</span>
-            </div>
-            <p>LLM fine-tuning, orta-büyük ölçekli eğitim işleri ve yüksek VRAM gerektiren kurumsal AI denemeleri için profesyonel seçenek.</p>
-            <div class="price"><strong>$1.440</strong><span>/ ay</span></div>
-            <ul>
-              <li>1x A100 SXM4 GPU</li>
-              <li>2.000 GB/s bellek bant genişliği</li>
-              <li>13B-70B parametre arası modeller için uygun</li>
-              <li>Öncelikli kurulum ve destek</li>
-            </ul>
-            <a class="source-link" href="https://www.nvidia.com/en-us/data-center/a100/" target="_blank" rel="noreferrer">NVIDIA A100 ürün bilgisi</a>
-            <a class="button card-action" href="iletisim.html">Teklif Al</a>
-          </article>
-
-          <article class="package-card">
-            <img class="package-image" src="assets/gpu-h100.png" alt="H100 veri merkezi GPU modülü" />
-            <div class="package-topline">
-              <div>
-                <p class="package-tier">Enterprise</p>
-                <h3>NVIDIA H100 SXM5</h3>
-              </div>
-              <span>80 GB HBM3</span>
-            </div>
-            <p>Büyük ölçekli LLM eğitimi, 70B+ model çalışmaları, yoğun inference ve kurumsal yüksek performanslı AI altyapısı için özel proje paketi.</p>
-            <div class="price quote"><strong>Fiyat Alın</strong><span>özel teklif</span></div>
-            <ul>
-              <li>1x H100 SXM5 GPU</li>
-              <li>3.350 GB/s bellek bant genişliği</li>
-              <li>70B+ parametreli modeller için uygun</li>
-              <li>Özel hesap ve proje planlama</li>
-            </ul>
-            <a class="source-link" href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA H100 ürün bilgisi</a>
-            <a class="button card-action" href="iletisim.html">Teklif Al</a>
-          </article>
-        </div>
-        <p class="pricing-note">Fiyatlar aylık başlangıç fiyatıdır. KDV, döviz kuru, CPU/RAM/disk konfigürasyonu, veri merkezi lokasyonu ve kurulum kapsamına göre nihai teklif değişebilir.</p>
-        <div class="section-action">
-          <a class="button primary" href="gpularimiz.html">Tüm GPU Detayları</a>
-        </div>
-      </section>
-
       <section class="section split" id="avantajlar">
         <div class="section-heading">
           <p class="eyebrow">Neden OMAY</p>
@@ -311,7 +233,7 @@
             Telefon numarası
             <input name="Telefon numarası" type="tel" autocomplete="tel" inputmode="tel" required />
           </label>
-          <label>
+          <label class="full">
             E-posta
             <input name="email" type="email" autocomplete="email" required />
           </label>
