@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-08-20",
+  "pages": 1000,
+  "images": 5000,
+  "minWords": 560,
+  "maxWords": 589,
+  "families": {
+    "hubs": 8,
+    "cozumler": 192,
+    "modeller": 180,
+    "gpu": 180,
+    "karsilastirma": 120,
+    "sektorler": 120,
+    "maliyet": 80,
+    "entegrasyon": 60,
+    "satinalma": 40,
+    "laboratuvar": 20
+  }
+}

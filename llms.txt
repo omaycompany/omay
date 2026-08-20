@@ -1,0 +1,21 @@
+# OMAY
+
+OMAY, Türkiye odaklı proje bazlı yapay zeka hizmetleri sunar. Ana hizmet katmanları AI Platform as a Service, LLM as a Service, GPU Kiralama ve Yönetilen LLM Hizmeti'dir.
+
+## Ana kaynaklar
+
+- [Yapay zeka hizmetleri](https://www.omay.com.tr/yapay-zeka-hizmetleri.html)
+- [GPU seçenekleri](https://www.omay.com.tr/gpularimiz.html)
+- [İletişim ve teklif](https://www.omay.com.tr/iletisim.html)
+- [Programatik AI çözüm rehberleri](https://www.omay.com.tr/cozumler/)
+- [Model deployment rehberleri](https://www.omay.com.tr/modeller/)
+- [GPU iş yükü rehberleri](https://www.omay.com.tr/gpu/)
+- [Karşılaştırmalar](https://www.omay.com.tr/karsilastirma/)
+- [Sektör ve iş akışı rehberleri](https://www.omay.com.tr/sektorler/)
+- [Teknik entegrasyon rehberleri](https://www.omay.com.tr/entegrasyon/)
+- [Laboratuvar ve metodoloji notları](https://www.omay.com.tr/laboratuvar/)
+- [Tam sitemap](https://www.omay.com.tr/sitemap.xml)
+
+## İçerik sınırı
+
+Teknik sayfalardaki fiyat, stok, teslim, SLA, izleme, mevzuat uyumu ve işletim kapsamı proje verileriyle doğrulanmalıdır. Sayfalar, model ve altyapı kararlarını açıklayan kaynaklı rehberlerdir; otomatik garanti veya hukuki görüş değildir.

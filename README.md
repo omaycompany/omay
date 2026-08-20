@@ -19,6 +19,17 @@ Bu klasör, `www.omay.com.tr` için ilk statik web sitesini içerir.
 - `assets/omay-logo.svg`: Header logosu
 - `assets/omay-mark.svg`: Favicon ve küçük marka işareti
 
+## Programatik SEO içerik kütüphanesi
+
+`pseo/build.mjs`, OMAY'ın AI hizmetleriyle ilişkili 1.000 Türkçe karar sayfasını, her sayfa için beş özgün SVG görseli, temiz dizin URL'lerini, canonical/breadcrumb/TechArticle işaretlemesini ve aile sitemap'lerini deterministik biçimde üretir. `pseo/generate.mjs` aynı üretim için kısa bir giriş noktasıdır.
+
+```sh
+node pseo/generate.mjs
+node pseo/validate.mjs
+```
+
+Doğrulama; sayfa ve görsel sayılarını, 500 kelime altı içerikleri, tekrar eden gövdeleri, canonical ve yapılandırılmış veriyi, iç bağlantıları, sitemap kapsamını ve hatalı SVG değerlerini kontrol eder. Üretim özeti `pseo/build-summary.json`, sayfa manifesti `pseo/manifest.json` ve aile sitemap'leri `pseo/sitemap-*.xml` altında tutulur.
+
 ## Yayına alma
 
 Bu sürüm statik HTML/CSS olduğu için GitHub Pages üzerinde doğrudan yayınlanabilir.
