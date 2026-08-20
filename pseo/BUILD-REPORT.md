@@ -3,6 +3,8 @@
 - Üretim tarihi: 2026-08-20
 - Sayfa sayısı: 1000
 - Görsel sayısı: 5000
+- Görsel formatı: WEBP
+- Görsel master sayısı: 5 (imagegen)
 - En düşük içerik uzunluğu: 560 kelime
 - En yüksek içerik uzunluğu: 589 kelime
 
@@ -19,5 +21,5 @@
 - satinalma: 40
 - laboratuvar: 20
 
-Üretim: node pseo/build.mjs
+Üretim: python3 pseo/rasterize_imagen.py ardından node pseo/build.mjs
 Doğrulama: node pseo/validate.mjs

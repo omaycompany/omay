@@ -10,6 +10,7 @@ const routeFile = (route) => path.join(ROOT, route.replace(/^\//, ""), "index.ht
 const strip = (value) => String(value).replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/&[a-z0-9#]+;/gi, " ").trim();
 const words = (value) => strip(value).split(/\s+/).filter(Boolean).length;
 const digest = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const imageExtension = ".webp";
 
 check(manifest.length === 1000, `manifest has ${manifest.length} target pages`);
 check(new Set(manifest.map((page) => page.route)).size === manifest.length, "duplicate routes in manifest");
@@ -40,10 +41,9 @@ for (const page of manifest) {
       const asset = path.join(ROOT, target.replace(/^\//, ""));
       check(fs.existsSync(asset), `${page.route} missing asset ${target}`);
       if (fs.existsSync(asset)) {
-        const assetSource = fs.readFileSync(asset, "utf8");
-        check(!assetSource.includes("undefined"), `${page.route} malformed SVG colour in ${target}`);
-        check(!/opacity="[^\"]*\d\.\d+\.\d+/.test(assetSource), `${page.route} malformed SVG opacity in ${target}`);
-        const assetDigest = digest(assetSource);
+        check(target.endsWith(imageExtension), `${page.route} uses a non-WebP pSEO asset ${target}`);
+        check(fs.statSync(asset).size > 5000, `${page.route} has an unexpectedly small raster asset ${target}`);
+        const assetDigest = digest(fs.readFileSync(asset));
         if (imageDigests.has(assetDigest)) failures.push(`duplicate image asset ${target} and ${imageDigests.get(assetDigest)}`);
         imageDigests.set(assetDigest, target);
       }
@@ -62,8 +62,8 @@ const sitemap = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 check(sitemapUrls.length >= 1025, `root sitemap has only ${sitemapUrls.length} URLs`);
 for (const page of manifest) check(sitemapUrls.includes(`https://www.omay.com.tr${page.route}`), `missing sitemap URL ${page.route}`);
-const svgCount = fs.readdirSync(path.join(ROOT, "assets", "pseo")).filter((file) => file.endsWith(".svg")).length;
-check(svgCount === 5000, `expected 5000 SVG assets, found ${svgCount}`);
+const webpCount = fs.readdirSync(path.join(ROOT, "assets", "pseo")).filter((file) => file.endsWith(imageExtension)).length;
+check(webpCount === 5000, `expected 5000 WebP assets, found ${webpCount}`);
 
 const result = { targetPages: manifest.length, targetImages: imageDigests.size, duplicateBodies: failures.filter((failure) => failure.startsWith("duplicate article")).length, sitemapUrls: sitemapUrls.length, failures };
 console.log(JSON.stringify(result, null, 2));

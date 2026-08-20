@@ -5,6 +5,7 @@ import crypto from "node:crypto";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const PUBLIC = "https://www.omay.com.tr";
 const today = "2026-08-20";
+const IMAGE_EXTENSION = "webp";
 
 const services = {
   platform: { label: "AI Platform as a Service", route: "/yapay-zeka-hizmetleri.html", cta: "AI hizmet planınızı birlikte çıkaralım" },
@@ -219,7 +220,6 @@ add({ family: "laboratuvar", route: "laboratuvar/veri-ve-iddia-sinirlari", title
 
 if (pages.length !== 1000) throw new Error(`Expected 1000 pages, received ${pages.length}`);
 
-const palette = ["#0b171d", "#123c45", "#dff7f2", "#19bca8", "#d4a54c", "#f2f7f6", "#5a6971"];
 const escapeHtml = (value) => String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 const hash = (value) => crypto.createHash("sha256").update(String(value)).digest("hex");
 const safe = (value) => String(value).replace(/[^a-z0-9-]+/gi, "-").replace(/^-|-$/g, "").toLowerCase();
@@ -361,25 +361,6 @@ function roleCopy(p, role) {
   return map[role.slug];
 }
 
-function renderSvg(p, role, index) {
-  const seed = seedFor(p.id, role.slug);
-  // Bitwise shifts in JavaScript are signed 32-bit operations. Normalize the
-  // deterministic hash before indexing so a negative remainder can never
-  // produce an `undefined` SVG colour.
-  const normalizedSeed = seed >>> 0;
-  const c1 = palette[normalizedSeed % palette.length];
-  const c2 = palette[((normalizedSeed >>> 4) % palette.length)];
-  const c3 = palette[((normalizedSeed >>> 8) % palette.length)];
-  const bars = Array.from({ length: 5 }, (_, i) => {
-    const height = 70 + ((normalizedSeed >>> (i + 2)) % 150);
-    const opacity = (0.42 + i * 0.08).toFixed(2);
-    return `<rect x="${90 + i * 105}" y="${490 - height}" width="58" height="${height}" rx="7" fill="${i % 2 ? c2 : c3}" opacity="${opacity}"/>`;
-  }).join("");
-  const lines = Array.from({ length: 5 }, (_, i) => `<line x1="${80 + i * 220}" y1="${100 + ((normalizedSeed >>> i) % 130)}" x2="${210 + i * 220}" y2="${130 + ((normalizedSeed >>> (i + 3)) % 140)}" stroke="${c2}" stroke-width="${i % 2 ? 3 : 5}" opacity="0.55"/>`).join("");
-  const roleLabel = role.label;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc"><title>${escapeHtml(roleLabel)} — ${escapeHtml(p.entity)}</title><desc>${escapeHtml(p.detail)} için OMAY pSEO görseli.</desc><rect width="1200" height="700" fill="#f5f8f7"/><rect x="38" y="38" width="1124" height="624" rx="24" fill="${c1}"/><path d="M38 520 C240 410 340 590 540 470 S850 350 1162 470 V662 H38Z" fill="${c2}" opacity="0.42"/><path d="M38 160 C240 260 310 70 520 190 S880 280 1162 130" fill="none" stroke="${c3}" stroke-width="9" opacity="0.6"/>${lines}${bars}<circle cx="920" cy="190" r="88" fill="${c3}" opacity="0.24"/><circle cx="920" cy="190" r="48" fill="none" stroke="${c3}" stroke-width="9" opacity="0.72"/><path d="M876 190h88M920 146v88" stroke="${c3}" stroke-width="7" opacity="0.72"/><text x="82" y="114" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="2">OMAY / ${escapeHtml(roleLabel.toUpperCase())}</text><text x="82" y="610" fill="#ffffff" font-family="Arial, sans-serif" font-size="22" opacity="0.82">${escapeHtml(p.entity.slice(0, 58))}</text><text x="82" y="640" fill="#ffffff" font-family="Arial, sans-serif" font-size="17" opacity="0.62">${escapeHtml(p.detail.slice(0, 72))}</text></svg>`;
-}
-
 function sourceLinks(p) {
   const links = [
     ["OMAY AI hizmetleri", `${PUBLIC}/yapay-zeka-hizmetleri.html`],
@@ -404,10 +385,9 @@ function renderPage(p) {
   p.wordCount = wordCount(p.sections.map((s) => s.paragraphs.join(" ")).join(" "));
   const assetFolder = safe(p.id);
   const imageCards = roles.map((role, index) => {
-    const fileName = `${assetFolder}-${String(index + 1).padStart(2, "0")}.svg`;
-    const imageDir = path.join(ROOT, "assets", "pseo");
-    fs.mkdirSync(imageDir, { recursive: true });
-    fs.writeFileSync(path.join(imageDir, fileName), renderSvg(p, role, index));
+    const fileName = `${assetFolder}-${String(index + 1).padStart(2, "0")}.${IMAGE_EXTENSION}`;
+    const imagePath = path.join(ROOT, "assets", "pseo", fileName);
+    if (!fs.existsSync(imagePath)) throw new Error(`Missing Imagen raster asset: ${imagePath}`);
     const [alt, caption] = roleCopy(p, role);
     return `<figure class="pseo-image-card"><img src="/assets/pseo/${fileName}" alt="${escapeHtml(alt)}" ${index === 0 ? "" : "loading=\"lazy\""} /><figcaption>${escapeHtml(caption)}</figcaption></figure>`;
   }).join("\n");
@@ -460,7 +440,7 @@ function renderPage(p) {
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description.slice(0, 158))}" />
     <meta property="og:url" content="${PUBLIC}${route}" />
-    <meta property="og:image" content="${PUBLIC}/assets/pseo/${assetFolder}-01.svg" />
+    <meta property="og:image" content="${PUBLIC}/assets/pseo/${assetFolder}-01.${IMAGE_EXTENSION}" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/omay-mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
@@ -487,9 +467,17 @@ function renderPage(p) {
   fs.writeFileSync(file, html);
 }
 
-// The generator owns this deterministic asset directory. Clear it before a
-// rebuild so removed or renamed manifest rows cannot leave stale SVGs behind.
+// The rasterizer owns this deterministic asset directory. Build pages only
+// after the Imagen-derived WebP set exists; this prevents a rebuild from
+// silently falling back to synthetic vector placeholders.
 const imageOutputDir = path.join(ROOT, "assets", "pseo");
+const expectedRasterImages = pages.length * roles.length;
+const rasterImages = fs.existsSync(imageOutputDir)
+  ? fs.readdirSync(imageOutputDir).filter((file) => file.endsWith(`.${IMAGE_EXTENSION}`))
+  : [];
+if (rasterImages.length !== expectedRasterImages) {
+  throw new Error(`Expected ${expectedRasterImages} Imagen WebP assets; found ${rasterImages.length}. Run python3 pseo/rasterize_imagen.py first.`);
+}
 // Remove page directories produced by an older generator variant.  Generated
 // pSEO routes are the only content under these family roots that this build
 // owns; a legacy page is identifiable by its `media/` directory.  Keep any
@@ -523,8 +511,6 @@ for (const familyRoot of generatedFamilyRoots) {
     }
   }
 }
-fs.rmSync(imageOutputDir, { recursive: true, force: true });
-fs.mkdirSync(imageOutputDir, { recursive: true });
 for (const page of pages) renderPage(page);
 
 const manifest = pages.map((p) => ({ id: p.id, family: p.family, route: `/${p.route}/`, title: p.title, service: p.service.label, type: p.type, words: p.wordCount, images: 5, updated: today }));
@@ -578,8 +564,8 @@ const sitemapRoutes = ["/", "/yapay-zeka-hizmetleri.html", "/gpularimiz.html", "
 ]];
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapRoutes.map((route) => `<url><loc>${PUBLIC}${route}</loc><lastmod>${today}</lastmod></url>`).join("")}</urlset>`;
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemapXml);
-const buildSummary = { builtAt: today, pages: pages.length, images: pages.length * 5, minimumWords: Math.min(...pages.map((p) => p.wordCount)), maximumWords: Math.max(...pages.map((p) => p.wordCount)), families: Object.fromEntries([...familyUrls].map(([family, routes]) => [family, routes.length])) };
+const buildSummary = { builtAt: today, pages: pages.length, images: pages.length * 5, imageFormat: IMAGE_EXTENSION, imageMasters: roles.length, minimumWords: Math.min(...pages.map((p) => p.wordCount)), maximumWords: Math.max(...pages.map((p) => p.wordCount)), families: Object.fromEntries([...familyUrls].map(([family, routes]) => [family, routes.length])) };
 fs.writeFileSync(path.join(ROOT, "pseo", "build-summary.json"), JSON.stringify(buildSummary, null, 2));
-fs.writeFileSync(path.join(ROOT, "pseo", "counts.json"), JSON.stringify({ generatedAt: today, pages: pages.length, images: pages.length * 5, minWords: buildSummary.minimumWords, maxWords: buildSummary.maximumWords, families: buildSummary.families }, null, 2));
-fs.writeFileSync(path.join(ROOT, "pseo", "BUILD-REPORT.md"), `# OMAY pSEO üretim raporu\n\n- Üretim tarihi: ${today}\n- Sayfa sayısı: ${pages.length}\n- Görsel sayısı: ${pages.length * 5}\n- En düşük içerik uzunluğu: ${buildSummary.minimumWords} kelime\n- En yüksek içerik uzunluğu: ${buildSummary.maximumWords} kelime\n\n## Aile sayıları\n\n${Object.entries(buildSummary.families).map(([family, count]) => "- " + family + ": " + count).join("\n")}\n\nÜretim: node pseo/build.mjs\nDoğrulama: node pseo/validate.mjs\n`);
+fs.writeFileSync(path.join(ROOT, "pseo", "counts.json"), JSON.stringify({ generatedAt: today, pages: pages.length, images: pages.length * 5, imageFormat: IMAGE_EXTENSION, imageMasters: roles.length, minWords: buildSummary.minimumWords, maxWords: buildSummary.maximumWords, families: buildSummary.families }, null, 2));
+fs.writeFileSync(path.join(ROOT, "pseo", "BUILD-REPORT.md"), `# OMAY pSEO üretim raporu\n\n- Üretim tarihi: ${today}\n- Sayfa sayısı: ${pages.length}\n- Görsel sayısı: ${pages.length * 5}\n- Görsel formatı: ${IMAGE_EXTENSION.toUpperCase()}\n- Görsel master sayısı: ${roles.length} (imagegen)\n- En düşük içerik uzunluğu: ${buildSummary.minimumWords} kelime\n- En yüksek içerik uzunluğu: ${buildSummary.maximumWords} kelime\n\n## Aile sayıları\n\n${Object.entries(buildSummary.families).map(([family, count]) => "- " + family + ": " + count).join("\n")}\n\nÜretim: python3 pseo/rasterize_imagen.py ardından node pseo/build.mjs\nDoğrulama: node pseo/validate.mjs\n`);
 console.log(JSON.stringify({ pages: pages.length, images: pages.length * 5, minimumWords: Math.min(...pages.map((p) => p.wordCount)), maximumWords: Math.max(...pages.map((p) => p.wordCount)), families: Object.fromEntries([...familyUrls].map(([family, routes]) => [family, routes.length])) }, null, 2));

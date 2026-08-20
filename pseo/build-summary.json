@@ -2,6 +2,8 @@
   "builtAt": "2026-08-20",
   "pages": 1000,
   "images": 5000,
+  "imageFormat": "webp",
+  "imageMasters": 5,
   "minimumWords": 560,
   "maximumWords": 589,
   "families": {

@@ -21,14 +21,15 @@ Bu klasör, `www.omay.com.tr` için ilk statik web sitesini içerir.
 
 ## Programatik SEO içerik kütüphanesi
 
-`pseo/build.mjs`, OMAY'ın AI hizmetleriyle ilişkili 1.000 Türkçe karar sayfasını, her sayfa için beş özgün SVG görseli, temiz dizin URL'lerini, canonical/breadcrumb/TechArticle işaretlemesini ve aile sitemap'lerini deterministik biçimde üretir. `pseo/generate.mjs` aynı üretim için kısa bir giriş noktasıdır.
+`pseo/build.mjs`, OMAY'ın AI hizmetleriyle ilişkili 1.000 Türkçe karar sayfasını, her sayfa için beş özgün WebP görseli, temiz dizin URL'lerini, canonical/breadcrumb/TechArticle işaretlemesini ve aile sitemap'lerini deterministik biçimde üretir. Görsel kaynakları imagegen skill ile hazırlanan `pseo/imagen-sources/` master'larından `pseo/rasterize_imagen.py` ile üretilir. `pseo/generate.mjs` aynı üretim için kısa bir giriş noktasıdır.
 
 ```sh
+python3 pseo/rasterize_imagen.py
 node pseo/generate.mjs
 node pseo/validate.mjs
 ```
 
-Doğrulama; sayfa ve görsel sayılarını, 500 kelime altı içerikleri, tekrar eden gövdeleri, canonical ve yapılandırılmış veriyi, iç bağlantıları, sitemap kapsamını ve hatalı SVG değerlerini kontrol eder. Üretim özeti `pseo/build-summary.json`, sayfa manifesti `pseo/manifest.json` ve aile sitemap'leri `pseo/sitemap-*.xml` altında tutulur.
+Doğrulama; sayfa ve görsel sayılarını, 500 kelime altı içerikleri, tekrar eden gövdeleri, canonical ve yapılandırılmış veriyi, iç bağlantıları, sitemap kapsamını ve raster dosya bütünlüğünü kontrol eder. Üretim özeti `pseo/build-summary.json`, sayfa manifesti `pseo/manifest.json` ve aile sitemap'leri `pseo/sitemap-*.xml` altında tutulur.
 
 ## Yayına alma
 

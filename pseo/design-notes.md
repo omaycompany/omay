@@ -36,7 +36,7 @@ Every page may have five unique images, but each image must serve a different ed
 4. **Decision detail:** an annotated chart, capacity board or photographed setup that supports a claim in the page.
 5. **Human context:** a team or operator using the result, used only when it adds context.
 
-Use real source material, commissioned photography, or clean diagrams with an explicit caption. Do not create five near-identical crops of one GPU or five decorative AI illustrations. Each image needs a descriptive Turkish `alt`, a caption explaining its relevance, and a stable filename derived from the page ID. Keep image crops calm and documentary: the CSS deliberately reduces saturation slightly and avoids poster-like overlays.
+Use imagegen-created editorial masters or commissioned photography with an explicit caption. The shipped set uses five imagegen role masters and deterministic, page-specific raster treatments so every URL receives five distinct WebP files without introducing a synthetic dashboard aesthetic. Each image needs a descriptive Turkish `alt`, a caption explaining its relevance, and a stable filename derived from the page ID. Keep image crops calm and documentary: the CSS deliberately reduces saturation slightly and avoids poster-like overlays.
 
 ## Content density and rhythm
 

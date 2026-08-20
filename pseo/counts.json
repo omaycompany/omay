@@ -2,6 +2,8 @@
   "generatedAt": "2026-08-20",
   "pages": 1000,
   "images": 5000,
+  "imageFormat": "webp",
+  "imageMasters": 5,
   "minWords": 560,
   "maxWords": 589,
   "families": {
