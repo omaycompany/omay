@@ -886,10 +886,48 @@ textarea:focus {
   font-size: clamp(2.3rem, 5.5vw, 4.1rem);
 }
 
+.article h2 {
+  margin: 38px 0 12px;
+  color: var(--ink);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.article h3 {
+  margin: 26px 0 8px;
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
 .article p,
 .article li {
   color: #394752;
   font-size: 1.07rem;
+}
+
+.article-lede {
+  color: var(--ink) !important;
+  font-size: 1.2rem !important;
+  line-height: 1.7;
+}
+
+.article ul,
+.article ol {
+  margin: 0 0 24px;
+  padding-left: 1.35rem;
+}
+
+.article li + li {
+  margin-top: 10px;
+}
+
+.article-note {
+  margin: 28px 0;
+  padding: 18px 20px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: #eef9f7;
 }
 
 .article a:not(.button) {

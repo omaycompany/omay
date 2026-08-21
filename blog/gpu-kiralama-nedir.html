@@ -10,17 +10,38 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GPU Kiralama Nedir? | OMAY Blog</title><meta name="description" content="GPU kiralama nedir, hangi AI projeleri için mantıklıdır ve aylık model ne zaman tercih edilmelidir?" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GPU Kiralama Nedir? | OMAY Blog</title><meta name="description" content="GPU kiralamayı; kapasite, süre, yazılım ortamı, veri lokasyonu ve çıkış planıyla birlikte değerlendiren Türkçe rehber." /><link rel="canonical" href="https://www.omay.com.tr/blog/gpu-kiralama-nedir.html" /><meta property="og:type" content="article" /><meta property="og:title" content="GPU Kiralama Nedir? | OMAY Blog" /><meta property="og:description" content="GPU kiralamayı; kapasite, süre, yazılım ortamı, veri lokasyonu ve çıkış planıyla birlikte değerlendiren Türkçe rehber." /><meta property="og:url" content="https://www.omay.com.tr/blog/gpu-kiralama-nedir.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-datacenter-hero.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Rehber</p><h1>GPU Kiralama Nedir?</h1>
         <img class="article-image" src="../assets/gpu-datacenter-hero.png" alt="Veri merkezinde GPU sunucu altyapısı" />
-        <p>GPU kiralama, yüksek maliyetli ekran kartı veya veri merkezi hızlandırıcılarını satın almadan, belirli süre boyunca kullanma modelidir. AI ekipleri için en büyük avantajı, donanım yatırımı yapmadan model geliştirme, inference, fine-tuning veya render işlerini başlatabilmektir.</p>
-        <p>Aylık GPU kiralama özellikle sürekli çalışan işler için mantıklıdır. Saatlik bulut servisleri kısa testlerde pratik olabilir, ancak model servis etme, uzun fine-tuning ve kurumsal deneme süreçlerinde aylık maliyet daha öngörülebilir hale gelir.</p>
-        <p>Doğru teklif için sadece GPU modeli yetmez. CPU, RAM, NVMe disk, ağ erişimi, işletim sistemi, CUDA sürümü, Docker ihtiyacı, veri lokasyonu ve destek kapsamı birlikte değerlendirilmelidir.</p>
-        <p>OMAY yaklaşımı, müşteriye önce iş yükünü sormaktır. Model kaç GB, kaç kullanıcıya servis edilecek, veri Türkiye'de mi kalmalı, iş bir ay mı sürecek yoksa kalıcı mı? Bu sorular netleşince doğru GPU sınıfı daha sağlıklı seçilir.</p>
+        <p class="article-lede">GPU kiralama, pahalı bir hızlandırıcıyı satın almadan, belirli bir süre boyunca kullanılabilir bir sunucu ortamı olarak temin etmektir. Bu model yalnızca bir ekran kartına erişim anlamına gelmez; işlemci, RAM, NVMe disk, ağ, işletim sistemi, sürücüler ve destek kapsamı birlikte planlanır. Böylece bir AI ekibi donanım yatırımı için aylarca beklemeden model geliştirmeye, inference servisi kurmaya veya bir pilotu gerçek veriye yakın koşullarda denemeye başlayabilir.</p>
+        <h2>Satın alma yerine kiralama neyi değiştirir?</h2>
+        <p>Satın alma kararında donanımın peşin bedeli, kurulum yeri, elektrik, soğutma, yedek parça ve kullanım ömrü birlikte düşünülür. Kiralamada ise bu varlığı belirli bir proje süresince kullanırsınız. Bu, özellikle GPU ihtiyacı henüz kesinleşmemiş ekipler için finansal riski azaltır. Bir prototip beklenenden hızlı biçimde ürünleşebilir veya beklenen performansı vermeyebilir; kiralama, kapasiteyi daha kontrollü biçimde artırıp azaltma imkânı sağlar.</p>
+        <p>Ancak kiralama, bütün projeler için otomatik olarak daha ucuz değildir. Sunucu aylarca sürekli çalışacaksa toplam kira bedeli satın alma seçeneğiyle karşılaştırılmalıdır. Karar, yalnızca aylık rakama değil; teslim süresine, kurulum emeğine, veri çıkışına, destek kalitesine ve ekipteki operasyon kapasitesine bakılarak verilmelidir.</p>
+        <h2>Hangi iş yükleri için mantıklıdır?</h2>
+        <ul>
+          <li><strong>Prototip ve Ar-Ge:</strong> Bir modeli, embedding hattını veya görsel üretim akışını kısa sürede test etmek isteyen ekipler.</li>
+          <li><strong>Fine-tuning:</strong> Eğitim süresi sınırlı olan, checkpoint ve veri setlerini ayrı bir sunucuda tutmak isteyen projeler.</li>
+          <li><strong>Inference:</strong> Chatbot, OCR, sınıflandırma, arama veya üretken AI API'sini sürekli çalıştırması gereken ekipler.</li>
+          <li><strong>Render ve batch işleri:</strong> Günlük ya da haftalık yoğun kapasiteye ihtiyaç duyup sürekli donanım işletmek istemeyen ajanslar ve stüdyolar.</li>
+        </ul>
+        <h2>Teklifte sadece GPU modeline bakmayın</h2>
+        <p>Aynı GPU adı, farklı bir sunucu konfigürasyonunda çok farklı bir kullanıcı deneyimi yaratabilir. Model dosyaları diske sığmıyorsa yüksek VRAM'in faydası azalır; CPU veya RAM yetersizse veri hazırlama aşaması GPU'yu bekletir. Bu yüzden teklif isterken aşağıdaki ayrıntıları yazılı olarak istemek gerekir:</p>
+        <ul>
+          <li>GPU'nun dedike mi, paylaşımlı mı olduğu ve kullanılabilir VRAM miktarı</li>
+          <li>CPU çekirdekleri, sistem RAM'i, NVMe kapasitesi ve disk büyütme seçeneği</li>
+          <li>İşletim sistemi, NVIDIA driver, CUDA, Docker, PyTorch veya vLLM kurulum kapsamı</li>
+          <li>Veri merkezi lokasyonu, ağ erişimi, IP yapısı ve uzaktan erişim yöntemi</li>
+          <li>Kurulum süresi, destek saatleri, yedekleme ve veri silme prosedürü</li>
+        </ul>
+        <h2>Maliyeti ve çıkış planını birlikte hesaplayın</h2>
+        <p>İyi bir kiralama planı, projenin ne zaman başlayıp ne zaman biteceğini de tanımlar. Pilot bitince disk imajı, model ağırlıkları ve loglar nasıl teslim edilecek? Sunucu aynı ay içinde büyütülebilecek mi? Kullanılmayan dönemde kapasiteyi durdurmak mümkün mü? Bu sorular cevaplanmadan en düşük fiyatı seçmek, sonradan taşıma ve yeniden kurulum maliyeti doğurabilir.</p>
+        <p>İlk görüşmede bütün teknik ayrıntıları bilmeniz de beklenmez. Modelin adı, yaklaşık boyutu, günlük istek sayısı, verinin hassasiyet seviyesi ve projenin tahmini süresi başlangıç için yeterli bir çerçeve oluşturur. Sağlayıcı bu bilgilerle birkaç seçenek sunabilir; ardından kısa benchmark sonucuna göre CPU, RAM, disk veya GPU sınıfı kesinleştirilebilir. Böyle bir süreç, ekibin bilmediği noktaları saklamak yerine kararın parçası yapar.</p>
+        <p>Bu yaklaşım, gereğinden büyük bir sunucuyla başlama riskini de azaltır. Önce ölçülebilir bir pilot, ardından kanıtlanan ihtiyaca göre ölçekleme; bütçeyi, teslim süresini ve teknik beklentiyi aynı çizgide tutar.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> GPU kiralama, iş yükü ve süre netleştiğinde güçlü bir başlangıç modelidir. OMAY'a model boyutunu, tahmini kullanıcı trafiğini, kullanım süresini ve beklenen yazılım ortamını iletin; uygun GPU sınıfını birlikte netleştirelim.</p>
         <a class="button primary" href="../iletisim.html">Teklif Al</a>
       </article>
     </main>

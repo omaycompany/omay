@@ -10,16 +10,33 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Aylık mı Saatlik mi GPU? | OMAY Blog</title><meta name="description" content="GPU kiralamada aylık ve saatlik modellerin maliyet ve operasyon açısından karşılaştırması." /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Aylık mı Saatlik mi GPU? | OMAY Blog</title><meta name="description" content="Aylık ve saatlik GPU'yu çalışma süresi, kurulum tekrarları, veri saklama ve çıkış koşullarıyla karşılaştıran rehber." /><link rel="canonical" href="https://www.omay.com.tr/blog/aylik-mi-saatlik-mi-gpu.html" /><meta property="og:type" content="article" /><meta property="og:title" content="Aylık mı Saatlik mi GPU? | OMAY Blog" /><meta property="og:description" content="Aylık ve saatlik GPU'yu çalışma süresi, kurulum tekrarları, veri saklama ve çıkış koşullarıyla karşılaştıran rehber." /><meta property="og:url" content="https://www.omay.com.tr/blog/aylik-mi-saatlik-mi-gpu.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-a100.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Maliyet</p><h1>Aylık mı Saatlik mi GPU?</h1>
         <img class="article-image" src="../assets/gpu-a100.png" alt="A100 GPU ile aylık kiralama maliyeti" />
-        <p>Saatlik GPU kullanımı kısa denemeler ve ani testler için uygundur. Ancak model servis etme, sürekli inference, uzun fine-tuning ve kurumsal pilot projelerde aylık kiralama daha öngörülebilir bütçe sağlar.</p>
-        <p>Karar verirken GPU'nun kaç saat açık kalacağına bakmak gerekir. Eğer sunucu ayın büyük kısmında çalışacaksa, aylık model genellikle daha anlaşılır maliyet ve daha stabil operasyon sunar.</p>
-        <p>Aylık modelin başka bir avantajı da ortamın korunmasıdır. Dataset, Docker imajı, notebook, loglar ve kurulumlar her seferinde yeniden hazırlanmaz.</p>
+        <p class="article-lede">Aylık ve saatlik GPU arasında doğru seçim, yalnızca iki fiyatı bölmekle yapılmaz. Sunucunun kaç saat çalışacağı, kurulumun kaç kez tekrarlanacağı, verinin ne kadar süre tutulacağı, modelin sürekli servis verip vermeyeceği ve ekibin operasyon yükü birlikte hesaplanmalıdır. Kısa bir benchmark ile sürekli çalışan inference servisi aynı kiralama mantığına sahip değildir.</p>
+        <h2>Saatlik model ne zaman avantajlıdır?</h2>
+        <p>Saatlik kullanım, henüz iş yükünü tanımayan veya birkaç saatlik hesaplama penceresine ihtiyaç duyan ekipler için esneklik sağlar. Bir kütüphaneyi denemek, modelin belleğe sığıp sığmadığını görmek, küçük bir benchmark çalıştırmak ya da tek seferlik bir batch işini tamamlamak buna örnektir. İş bittiğinde kapasiteyi kapatmak mümkünse kullanılmayan saatlerin bedeli oluşmaz.</p>
+        <p>Bunun karşılığında her açılışta hazırlık ve kontrol maliyeti vardır. Container imajının çekilmesi, veri setinin taşınması, ortam değişkenlerinin ayarlanması ve sonuçların güvenli biçimde dışarı alınması saatlik kullanımda gözden kaçan sürelerdir. Saatlik fiyat düşük görünse bile bu tekrarlar ekip zamanını tüketebilir.</p>
+        <h2>Aylık model ne zaman daha sağlıklıdır?</h2>
+        <p>Model servisinin gün boyunca açık kalması, fine-tuning işinin haftalar sürmesi veya ekibin aynı çalışma ortamına düzenli dönmesi bekleniyorsa aylık kiralama daha öngörülebilir bir yapı sunar. Diskte dataset, checkpoint, Docker imajı, notebook ve loglar korunur; ekip her oturumda aynı kurulumu baştan yapmak zorunda kalmaz.</p>
+        <ul>
+          <li>Üretim inference API'si veya chatbot günün çoğunda çalışıyorsa</li>
+          <li>Fine-tuning ve değerlendirme döngüsü birden fazla haftaya yayılıyorsa</li>
+          <li>Kurulumun her seferinde tekrarlanması veri ve ekip riski yaratıyorsa</li>
+          <li>İş yükü düzenli ve kapasite ihtiyacı önceden tahmin edilebiliyorsa</li>
+        </ul>
+        <h2>Basit bir eşik hesabı yapın</h2>
+        <p>Saatlik fiyatı beklenen aylık çalışma saatiyle çarpın; ardından veri aktarımı, disk, kurulum ve destek gibi kalemleri ekleyin. Aylık teklifin aynı kapsamla karşılaştırılabilmesi için yalnızca GPU bedelini değil, CPU, RAM, NVMe, lokasyon ve yazılım kurulumunu da eşitleyin. İki seçenek birbirine yaklaşıyorsa karar artık sadece matematik değil; ortamın korunması, destek ve kapasite değişimi gibi operasyonel faydalar üzerinden verilir.</p>
+        <p>Bu hesabı yaparken GPU'nun 7/24 açık kalacağını varsaymak da doğru değildir. Uygulama gece kapatılabiliyor, batch işleri belirli günlerde çalışıyor veya ekip yalnızca mesai saatlerinde test yapıyorsa kullanım profili farklı çıkar. Bir haftalık gerçekçi ölçüm, tahminden daha değerlidir.</p>
+        <h2>Taşınabilirlik ve çıkış koşulları</h2>
+        <p>Aylık kiralamada ekip ortamı sunucuya bağladıkça çıkış planı önem kazanır. Model ağırlıkları, veri seti, sonuçlar ve özel Docker imajları hangi formatta teslim edilecek? Sonlandırma için kaç gün önce bildirim gerekiyor? Kapasite büyütüldüğünde yeni GPU'ya geçiş sırasında disk nasıl taşınacak? Bu sorular sözleşme ve teklif aşamasında cevaplanmalıdır.</p>
+        <p>Bir pilot için en güvenli yöntem, ilk haftayı ölçüm dönemi olarak kabul etmektir. Bu dönemde gerçek çalışma saatlerini, veri transfer süresini, GPU boşta kalma oranını ve ekip müdahalelerini kaydedin. Sonraki ay için aylık pakete geçmek, saatlik kullanımda kalmak veya daha küçük bir karta inmek daha kolay olur. Böyle bir karar, tahmini kullanım yerine projenin kendi davranışına dayanır ve bütçe görüşmesini de somutlaştırır.</p>
+        <p>Özellikle ekip birden fazla şehirden çalışıyorsa erişim ve destek saatlerini de maliyet hesabına katın. Her açılışta beklenen bir sunucu, kâğıt üzerinde ucuz olsa bile teslim takvimini uzatabilir. Aylık modelin süreklilik avantajı, bu görünmeyen beklemeleri azaltarak teknik ekibin aynı ortama güvenle dönmesini sağlar.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> Saatlik GPU kısa ve ölçülebilir denemelerde, aylık GPU ise sürekli servis ve uzun süren projelerde daha mantıklıdır. Gerçek kullanım saatini, kurulum tekrarlarını ve veri yaşam döngüsünü birlikte hesaplayın.</p>
         <a class="button primary" href="../iletisim.html">Aylık Teklif Al</a>
       </article>
     </main>

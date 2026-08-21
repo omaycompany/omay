@@ -10,16 +10,39 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>KVKK ve Türkiye Lokasyonlu GPU | OMAY Blog</title><meta name="description" content="AI projelerinde KVKK, veri lokasyonu ve Türkiye lokasyonlu GPU altyapısının önemi." /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>KVKK ve Türkiye Lokasyonlu GPU | OMAY Blog</title><meta name="description" content="Türkiye lokasyonlu GPU'da veri akışı, erişim, yedekleme, silme ve sözleşme sorularını KVKK perspektifiyle ele alan rehber." /><link rel="canonical" href="https://www.omay.com.tr/blog/kvkk-ve-turkiye-lokasyonlu-gpu.html" /><meta property="og:type" content="article" /><meta property="og:title" content="KVKK ve Türkiye Lokasyonlu GPU | OMAY Blog" /><meta property="og:description" content="Türkiye lokasyonlu GPU'da veri akışı, erişim, yedekleme, silme ve sözleşme sorularını KVKK perspektifiyle ele alan rehber." /><meta property="og:url" content="https://www.omay.com.tr/blog/kvkk-ve-turkiye-lokasyonlu-gpu.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-datacenter-hero.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Güvenlik</p><h1>KVKK ve Türkiye Lokasyonlu GPU</h1>
         <img class="article-image" src="../assets/gpu-datacenter-hero.png" alt="Türkiye lokasyonlu veri merkezi ve GPU altyapısı" />
-        <p>AI projelerinde veri çoğu zaman en hassas varlıktır. Müşteri kayıtları, çağrı merkezi transkriptleri, finansal veriler, sağlık verileri veya şirket içi dokümanlar yurtdışı servislerde işlendiğinde KVKK ve veri egemenliği soruları doğar.</p>
-        <p>Türkiye lokasyonlu GPU altyapısı, verinin nerede işlendiğini ve hangi erişim modeliyle kullanıldığını daha net yönetmek isteyen kurumlar için önemlidir. Bu yaklaşım özellikle finans, sağlık, hukuk, savunma, üretim ve kamuya yakın sektörlerde güven yaratır.</p>
-        <p>GPU seçimi kadar erişim yöntemi, yedekleme politikası, kullanıcı yetkileri, disk şifreleme ve loglama da proje başında konuşulmalıdır.</p>
+        <p class="article-lede">Türkiye lokasyonlu GPU kullanımı, KVKK uyumunu tek başına garanti etmez; fakat verinin nerede işlendiğini, kimlerin eriştiğini ve hangi operasyonla silindiğini daha görünür yönetmeye yardımcı olur. Müşteri kayıtları, çağrı merkezi transkriptleri, finansal belgeler, sağlık bilgileri veya şirket içi dokümanlar bir AI iş akışına girdiğinde teknik altyapı ile hukuk, bilgi güvenliği ve satın alma ekiplerinin aynı çerçevede konuşması gerekir.</p>
+        <p class="article-note"><strong>Önemli sınır:</strong> Bu yazı hukuki danışmanlık değildir. Veri sorumlusu, veri işleyen, özel nitelikli veri, aktarım ve saklama kararları kurumun hukuk ve KVKK uzmanları tarafından somut işleme faaliyetine göre değerlendirilmelidir.</p>
+        <h2>Önce verinin yolculuğunu çıkarın</h2>
+        <p>Bir modelin nerede çalıştığı kadar, verinin GPU sunucusuna gelmeden önce hangi sistemlerden geçtiği de önemlidir. CRM dışa aktarımı, dosya paylaşımı, notebook, yedekleme alanı, log servisi ve hata izleme aracı aynı veri setini farklı yerlere kopyalayabilir. İlk adım; hangi verinin toplandığını, hangi amaçla işlendiğini, kimlerin kullandığını ve iş tamamlandığında nerede tutulduğunu yazılı bir akışa dönüştürmektir.</p>
+        <ul>
+          <li>Veri setindeki kişisel ve özel nitelikli alanları sınıflandırın.</li>
+          <li>Maskelenmiş, takma adlı veya sentetik veriyle test yapma imkânını değerlendirin.</li>
+          <li>GPU, disk, yedek, log ve destek erişimlerinin her birini ayrı ayrı listeleyin.</li>
+          <li>İşleme amacı ve saklama süresi sona erdiğinde silme adımını tanımlayın.</li>
+        </ul>
+        <h2>Lokasyon, erişim ve sözleşme birlikte düşünülmeli</h2>
+        <p>Türkiye lokasyonu, verinin fiziksel ve operasyonel konumuna dair önemli bir tercih sunar; ancak uzaktan destek hesabı, izleme servisi, yedekleme sağlayıcısı veya kullanılan model API'si farklı bir ülkede olabilir. Bu nedenle “sunucu Türkiye'de” cümlesi tek başına yeterli kabul edilmemelidir. Sağlayıcıya veri merkezinin konumunu, alt işleyenleri, destek erişimini, yönetim panelinin nerede barındığını ve verinin ülke dışına çıkıp çıkmadığını sormak gerekir.</p>
+        <p>Teklif ve sözleşme içinde yetki sınırları, gizlilik yükümlülükleri, olay bildirim akışı, yedeklerin tutulma süresi, veri silme yöntemi ve hizmet sona erdiğinde teslim/imhâ prosedürü açıkça yazılmalıdır. Teknik ekip için SSH anahtarı veya yönetici hesabı paylaşılacaksa kişisel hesap, çok faktörlü doğrulama ve erişim kaydı gibi kontroller de planlanmalıdır.</p>
+        <h2>GPU sunucusunda uygulanabilecek kontroller</h2>
+        <ol>
+          <li>Her ekip üyesine ayrı kullanıcı ve en az ayrıcalık ilkesiyle erişim verin.</li>
+          <li>Disk ve yedekleme şifrelemesini, anahtarların kimde tutulduğunu netleştirin.</li>
+          <li>Model, prompt, çıktı ve hata loglarında kişisel veri tutulup tutulmadığını kontrol edin.</li>
+          <li>Üretim ve test ortamlarını ayırın; kopyalanan veri setlerini kayıt altına alın.</li>
+          <li>Silme talebinde hangi klasörlerin, snapshot'ların ve yedeklerin temizleneceğini belgeleyin.</li>
+        </ol>
+        <h2>Teklif alırken doğru sorular</h2>
+        <p>Sağlayıcıya yalnızca GPU modeli değil, veri işleme koşulları da sorulmalıdır. “Türkiye'de fiziksel sunucu var mı?”, “Destek personeli hangi erişime sahip?”, “Yedekler nerede?”, “Loglar ne kadar tutuluyor?”, “Hizmet bitince silme kanıtı veriliyor mu?” ve “Özel ağ veya IP kısıtı uygulanabilir mi?” soruları, projenin gerçek risklerini görünür kılar.</p>
+        <p>Bu soruların yanıtlarını teknik ekibin anlayacağı bir kontrol listesine dönüştürmek uygulamayı kolaylaştırır. Kim erişim açabilir, kim onay verir, hangi log incelenir ve olay olduğunda kime haber verilir? Sorumluluklar kişi adı yerine rol bazında yazılırsa ekip değişikliğinde süreç bozulmaz. Böylece lokasyon tercihi, yalnızca pazarlama ifadesi olmaktan çıkar; denetlenebilir bir veri işleme düzeninin parçası olur.</p>
+        <p>OMAY, Türkiye odaklı GPU teklifini bu teknik sorularla birlikte şekillendirir. Nihai uyum kararı ise kurumun veri envanteri, sözleşmeleri ve hukuk değerlendirmesiyle verilmelidir.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> Türkiye lokasyonlu GPU, veri yerleşimi ve erişim yönetimini sadeleştirebilir; KVKK uyumu için amaç, yetki, aktarım, saklama ve silme kontrollerinin tamamı birlikte tasarlanmalıdır.</p>
         <a class="button primary" href="../iletisim.html">KVKK Odaklı Teklif Al</a>
       </article>
     </main>

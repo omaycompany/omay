@@ -10,17 +10,32 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>H100 Kimler İçin Mantıklı? | OMAY Blog</title><meta name="description" content="H100 GPU hangi büyük ölçekli AI, LLM eğitimi ve kurumsal inference projeleri için mantıklıdır?" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>H100 Kimler İçin Mantıklı? | OMAY Blog</title><meta name="description" content="H100'ü performans, teslim süresi, inference trafiği ve ölçek hedefiyle değerlendiren kurumsal AI rehberi." /><link rel="canonical" href="https://www.omay.com.tr/blog/h100-kimler-icin-mantikli.html" /><meta property="og:type" content="article" /><meta property="og:title" content="H100 Kimler İçin Mantıklı? | OMAY Blog" /><meta property="og:description" content="H100'ü performans, teslim süresi, inference trafiği ve ölçek hedefiyle değerlendiren kurumsal AI rehberi." /><meta property="og:url" content="https://www.omay.com.tr/blog/h100-kimler-icin-mantikli.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-h100.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Kurumsal AI</p><h1>H100 Kimler İçin Mantıklı?</h1>
         <img class="article-image" src="../assets/gpu-h100.png" alt="H100 veri merkezi GPU modülü" />
-        <p>H100, yüksek performanslı AI projeleri için NVIDIA'nın en güçlü veri merkezi GPU sınıflarından biridir. Büyük LLM eğitimi, 70B+ model çalışmaları, yoğun inference ve kurumsal ölçekte performans hassasiyeti olan projelerde anlam kazanır.</p>
-        <p>H100'e geçiş genellikle maliyet değil, zaman ve ölçek kararıdır. Eğer eğitim süresi kritikse, model boyutu çok büyükse veya üretim inference yükü güçlü SLA gerektiriyorsa H100 sınıfı değerlendirilmelidir.</p>
-        <p>Daha küçük prototipler için RTX 4090, ciddi fine-tuning için A100 daha dengeli olabilir. H100 ise yüksek bütçeli ve teknik gereksinimi netleşmiş projelerde daha doğru konumlanır.</p>
-        <p>Resmi teknik bilgi için <a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA H100 ürün sayfası</a> incelenebilir.</p>
+        <p class="article-lede">H100, “en güçlü kartı alalım” refleksiyle değil, hesaplama süresi ve üretim kapasitesi iş sonucunu doğrudan etkilediğinde mantıklıdır. Büyük dil modeli eğitimi, yoğun inference, yüksek eşzamanlılık veya kısa teslim takvimi olan kurumsal projelerde daha yüksek hesaplama kapasitesi toplam proje maliyetini düşürebilir. Küçük bir prototipte ise aynı kart gereksiz bütçe ve operasyon karmaşıklığı yaratabilir.</p>
+        <h2>H100 kararını performans değil süre belirler</h2>
+        <p>Bir eğitim işi üç hafta yerine birkaç gün içinde tamamlandığında ekip daha fazla deney yapabilir, hatalı bir yaklaşımı erken fark edebilir ve ürünü daha hızlı doğrulayabilir. Benzer şekilde inference tarafında düşük gecikme, tek bir isteği hızlandırmaktan çok aynı altyapının daha fazla kullanıcıyı taşımasını sağlayabilir. H100'ün anlamı burada ortaya çıkar: GPU maliyeti tek başına değil, geciken teslimat, ekip bekleme süresi ve kaçırılan kullanım fırsatıyla birlikte değerlendirilir.</p>
+        <p>Bu değerlendirme ölçüm ister. Mevcut modelin token hızı, batch davranışı, VRAM kullanımı, eğitim adım süresi ve hedef trafik kaydedilmeden H100'e geçmek yalnızca varsayım olur. Önce küçük bir benchmark, sonra gerçek iş yüküne yakın bir pilot yapılması daha sağlıklıdır.</p>
+        <h2>Kimler H100'ü ciddi biçimde değerlendirmeli?</h2>
+        <ul>
+          <li><strong>Büyük model ekipleri:</strong> Yüksek parametreli modelleri eğiten veya çok uzun bağlamlarla çalışan Ar-Ge grupları.</li>
+          <li><strong>Yoğun inference servisleri:</strong> Gün boyunca yüksek istek alan, gecikme hedefi ve kapasite taahhüdü bulunan API'ler.</li>
+          <li><strong>Zaman baskılı projeler:</strong> Demo, pilot veya ürün lansmanı için eğitim ve test takvimi sıkışık olan ekipler.</li>
+          <li><strong>Kurumsal ölçekleme:</strong> A100 veya daha küçük kartla yapılan ölçümlerde darboğazı belirginleşmiş üretim ortamları.</li>
+        </ul>
+        <h2>H100 hangi durumda fazla gelir?</h2>
+        <p>7B civarı bir modeli düşük trafikle servis etmek, temel embedding üretmek veya birkaç günlük görsel üretim denemesi yapmak için H100 kullanmak çoğu zaman kapasitenin boşa kalması demektir. Bu işlerde RTX 4090 veya A100 daha dengeli bir başlangıç sunabilir. Ayrıca darboğaz GPU değilse—örneğin veri hazırlama, ağ, disk okuma veya kötü yapılandırılmış batching sorunu varsa—daha güçlü bir kart beklenen sonucu getirmeyebilir.</p>
+        <h2>Teklifte teknik ve operasyonel kapsam</h2>
+        <p>H100 planlarken kartın SXM ya da PCIe formu, kullanılabilir VRAM, CPU ve sistem RAM'i, disk kapasitesi, ağ bağlantısı ve güç/soğutma düzeni birlikte sorulmalıdır. Büyük model servisinde yalnızca GPU değil, modelin yükleme süresi, container imajı, gözlemleme, log saklama ve gerektiğinde yatay ölçekleme de önemlidir. Kurulumun kimin sorumluluğunda olduğu ve arıza halinde destek akışı yazılı hale getirilmelidir.</p>
+        <p>H100 yatırımı için finansal onay alınırken teknik benchmark'ı iş hedefiyle eşleştirin. Daha kısa eğitim süresi kaç deneme kazandırıyor, düşük gecikme kaç kullanıcıyı aynı anda taşıyor, gecikmiş teslimatın ticari maliyeti nedir? Bu sorular cevaplanırsa karar “en hızlı GPU” seviyesinden çıkar ve proje yöneticisinin ölçebileceği bir zaman, kapasite ve risk hesabına dönüşür.</p>
+        <p>H100'ün gereksiz kaldığı durumda da bu benchmark boşa gitmez; A100 veya RTX 4090 için referans oluşturur. Aynı test setini farklı GPU sınıflarında çalıştırmak, yatırım kararını pazarlama dilinden çıkarıp ölçülebilir bir karşılaştırmaya dönüştürür.</p>
+        <p>Resmi teknik bilgi için <a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA H100 ürün sayfası</a> incelenebilir. OMAY, H100 teklifini hedef model, trafik, teslim tarihi ve kullanım süresiyle birlikte değerlendirir.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> H100, zaman ve ölçek kritik olduğunda mantıklıdır. Önce benchmark sonucu, eşzamanlı kullanıcı hedefi ve proje takvimi çıkarılmalı; küçük veya belirsiz bir pilotta daha dengeli GPU sınıfı tercih edilmelidir.</p>
         <a class="button primary" href="../iletisim.html">H100 İçin Görüşelim</a>
       </article>
     </main>

@@ -10,16 +10,40 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GPU Sunucuda Hazır Ortam | OMAY Blog</title><meta name="description" content="GPU sunucuda CUDA, NVIDIA driver, Docker, PyTorch ve Jupyter hazır kurulumunun önemi." /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GPU Sunucuda Hazır Ortam | OMAY Blog</title><meta name="description" content="Driver, CUDA, Docker, framework, erişim ve kabul testleriyle gerçekten çalışır bir GPU ortamı nasıl teslim edilir?" /><link rel="canonical" href="https://www.omay.com.tr/blog/gpu-sunucuda-hazir-ortam.html" /><meta property="og:type" content="article" /><meta property="og:title" content="GPU Sunucuda Hazır Ortam | OMAY Blog" /><meta property="og:description" content="Driver, CUDA, Docker, framework, erişim ve kabul testleriyle gerçekten çalışır bir GPU ortamı nasıl teslim edilir?" /><meta property="og:url" content="https://www.omay.com.tr/blog/gpu-sunucuda-hazir-ortam.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-datacenter-hero.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Operasyon</p><h1>GPU Sunucuda Hazır Ortam Neden Önemli?</h1>
         <img class="article-image" src="../assets/gpu-datacenter-hero.png" alt="Hazır kurulumlu GPU sunucu altyapısı" />
-        <p>GPU kiralarken sadece donanım almak yeterli değildir. NVIDIA driver, CUDA, cuDNN, Docker, PyTorch, TensorFlow, Jupyter, vLLM veya Ollama gibi araçların doğru sürümlerle kurulması gerekir.</p>
-        <p>Yanlış driver veya CUDA uyumsuzluğu, projenin ilk gününü teknik sorunlarla kaybettirebilir. Hazır ortam teslimi, özellikle AI ekibi küçük olan şirketlerde ciddi zaman kazandırır.</p>
-        <p>OMAY'da kurulum kapsamı teklif aşamasında netleştirilir. Basit geliştirme ortamı, Jupyter notebook, Docker tabanlı çalışma veya inference API kurulumu ayrı ayrı planlanabilir.</p>
+        <p class="article-lede">GPU sunucusu teslim almak, ekranda bir kartın görünmesinden ibaret değildir. NVIDIA sürücüsü, CUDA ve cuDNN sürümleri; PyTorch veya TensorFlow'un kullandığı binary'ler; Docker, model dosyaları, disk izinleri ve uzaktan erişim birlikte çalışmalıdır. Hazır ortam, ekibin ilk gününü kurulum hatalarını çözmeye değil, hedef modelini denemeye ayırmasını sağlar.</p>
+        <h2>Uyumsuzluk nerede zaman kaybettirir?</h2>
+        <p>Bir framework yeni bir CUDA sürümü isterken sunucuda eski bir driver kalabilir. Container içindeki kütüphane host sürücüsüyle uyuşmayabilir. Jupyter çalışsa bile GPU görünmeyebilir veya birden fazla iş aynı belleği kontrolsüz tüketebilir. Bu sorunlar genellikle tek bir hata mesajıyla sınırlı kalmaz; ekip saatlerce sürüm kombinasyonu arar, ortamı yeniden kurar ve hangi değişikliğin işe yaradığını kaydeder.</p>
+        <p>Hazır ortam bu riski ortadan kaldırmaz, fakat teslim edilen sürümleri ve sorumluluk sınırlarını görünür hale getirir. Kullanılan driver, CUDA, container runtime ve temel Python paketleri bir kurulum notunda listelenirse ekip sonraki değişiklikleri kontrollü yapabilir.</p>
+        <h2>İyi bir teslim kapsamı neleri içerir?</h2>
+        <ul>
+          <li><strong>Temel sistem:</strong> İşletim sistemi güncellemeleri, kullanıcılar, SSH erişimi, saat ve disk düzeni.</li>
+          <li><strong>GPU katmanı:</strong> NVIDIA driver, CUDA, container toolkit ve GPU görünürlük testi.</li>
+          <li><strong>Framework:</strong> İhtiyaca göre PyTorch, TensorFlow, Jupyter, vLLM, Ollama veya benzeri araçlar.</li>
+          <li><strong>Çalışma biçimi:</strong> Docker imajı, volume yapısı, portlar, model dizini ve log konumu.</li>
+          <li><strong>Devir dokümanı:</strong> Sürüm listesi, başlatma komutları, yedekleme ve destek iletişim akışı.</li>
+        </ul>
+        <h2>Hazır ortam ile yönetilen servis aynı şey değildir</h2>
+        <p>Hazır ortam, üzerinde çalışabileceğiniz bir başlangıç kurulumudur. Model güncellemesi, güvenlik yaması, performans ayarı, alarm takibi ve sürekli operasyon ise ayrıca planlanabilir. Teklifte bu ayrımı netleştirmek önemlidir. Bazı ekipler yalnızca sürücü ve Docker ister; bazıları inference API'si, model yükleme, gözlemleme ve düzenli bakım bekler.</p>
+        <p>Benzer şekilde Jupyter notebook, üretim API'si için tek başına yeterli değildir. Geliştirme ortamında kolaylık sağlayan araçların üretime taşınırken kimlik doğrulama, kaynak sınırı, loglama ve ağ kısıtlarıyla güvenli biçimde yapılandırılması gerekir.</p>
+        <p>Kurulumun bir başka amacı da ekip değiştiğinde bilginin kaybolmamasıdır. Bir mühendisin kişisel shell geçmişine veya yalnızca kendi bilgisayarındaki Docker imajına bağlı ortam, proje büyüdüğünde kırılgan hale gelir. Sürüm dosyası, örnek başlatma komutu ve kısa bir devir notu; yeni bir ekip üyesinin sistemi anlamasını, destek talebinin doğru kişiye gitmesini ve aynı deneyi yeniden çalıştırmasını kolaylaştırır.</p>
+        <p>Kurulum notuna bilinen sınırlamaları da ekleyin. Örneğin tek GPU ile aynı anda kaç inference işi öneriliyor, hangi portlar dışarı açık, hangi klasör geçici ve hangi işlem için yeniden başlatma gerekiyor? Sınırların yazılı olması, ekipte yanlış beklenti oluşmasını ve üretim öncesi sürprizleri azaltır. Bu not, teslim tarihindeki kısa bir görüşmeden daha kalıcı bir referanstır.</p>
+        <h2>Teslimden önce kabul testi yapın</h2>
+        <ol>
+          <li><code>nvidia-smi</code> ile kart, sürücü ve bellek görünürlüğünü kontrol edin.</li>
+          <li>Örnek bir PyTorch veya TensorFlow işlemini GPU üzerinde çalıştırın.</li>
+          <li>Container içinden GPU erişimini ve volume yazma/okuma izinlerini test edin.</li>
+          <li>Hedef modele yakın bir inference veya kısa eğitim adımı çalıştırın.</li>
+          <li>Yeniden başlatma sonrası servislerin nasıl ayağa kalktığını belgeleyin.</li>
+        </ol>
+        <p>OMAY'da kurulum kapsamı teklif aşamasında iş yüküne göre ayrıştırılır. Basit geliştirme ortamı, Docker tabanlı proje, notebook kullanımı veya inference endpoint'i aynı paket olarak varsayılmaz.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> Hazır ortam, donanım teslimi ile işe başlayabilen bir proje ortamı arasındaki farktır. Sürüm listesi, kabul testi ve destek sınırı yazılı değilse “hazır” ifadesi belirsiz kalır.</p>
         <a class="button primary" href="../iletisim.html">Hazır Ortam Talep Et</a>
       </article>
     </main>

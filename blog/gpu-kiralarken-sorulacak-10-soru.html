@@ -10,26 +10,33 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GPU Kiralarken Sorulacak 10 Soru | OMAY Blog</title><meta name="description" content="GPU kiralama teklifi almadan önce sorulması gereken 10 kritik soru." /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GPU Kiralarken Sorulacak 10 Soru | OMAY Blog</title><meta name="description" content="GPU teklifinde dedikasyon, VRAM, lokasyon, kurulum, destek, veri silme ve ölçekleme sorularını karşılaştırın." /><link rel="canonical" href="https://www.omay.com.tr/blog/gpu-kiralarken-sorulacak-10-soru.html" /><meta property="og:type" content="article" /><meta property="og:title" content="GPU Kiralarken Sorulacak 10 Soru | OMAY Blog" /><meta property="og:description" content="GPU teklifinde dedikasyon, VRAM, lokasyon, kurulum, destek, veri silme ve ölçekleme sorularını karşılaştırın." /><meta property="og:url" content="https://www.omay.com.tr/blog/gpu-kiralarken-sorulacak-10-soru.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-datacenter-hero.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Satın Alma</p><h1>GPU Kiralarken Sorulacak 10 Soru</h1>
         <img class="article-image" src="../assets/gpu-datacenter-hero.png" alt="Kurumsal GPU altyapısı ve veri merkezi" />
+        <p class="article-lede">GPU teklifi karşılaştırırken yalnızca aylık rakama veya kart adına bakmak, projenin gerçek maliyetini gizleyebilir. Aşağıdaki on soru; kapasite, güvenlik, yazılım ve destek kapsamını aynı çerçevede konuşmanıza yardımcı olur. Her sağlayıcıya aynı soruları sorarsanız teklifleri daha adil biçimde kıyaslayabilirsiniz.</p>
         <ol>
-          <li>GPU dedike mi, paylaşımlı mı?</li>
-          <li>VRAM miktarı modelim için yeterli mi?</li>
-          <li>CPU, RAM ve disk kapasitesi teklife dahil mi?</li>
-          <li>Veri merkezi lokasyonu nerede?</li>
-          <li>CUDA, driver ve Docker kurulumu hazır mı?</li>
-          <li>Minimum kiralama süresi nedir?</li>
-          <li>Yedekleme ve veri silme politikası nasıl?</li>
-          <li>Teknik destek hangi saatlerde veriliyor?</li>
-          <li>Fiyat KDV, kur ve özel kurulumdan etkileniyor mu?</li>
-          <li>İhtiyaç artarsa daha güçlü GPU'ya geçiş mümkün mü?</li>
+          <li><strong>GPU dedike mi, paylaşımlı mı?</strong> Dedike kaynak, başka müşterilerin yoğunluğundan etkilenme riskini azaltır. Paylaşımlı modelde ise GPU zamanı veya belleği nasıl bölüştürülüyor, performans sınırı nasıl ölçülüyor öğrenin.</li>
+          <li><strong>VRAM modelim için yeterli mi?</strong> Model ağırlıkları tek başına yeterli hesap değildir. Context, KV cache, batch, framework ve işletim payını da hesaba katın; sağlayıcıdan gerçek modelinizle kısa bir kapasite testi isteyin.</li>
+          <li><strong>CPU, RAM ve disk kapasitesi nedir?</strong> Veri hazırlama, tokenizer, Docker imajı ve checkpoint işlemleri GPU dışındaki kaynaklara dayanır. Çekirdek, RAM, NVMe ve büyütme seçeneklerini teklif üzerinde ayrı görün.</li>
+          <li><strong>Veri merkezi ve ağ lokasyonu nerede?</strong> Fiziksel lokasyon, gecikme, erişim ve veri yönetişimi açısından önemlidir. Yedeklerin, izleme servislerinin ve destek erişiminin de hangi bölgede olduğunu sorun.</li>
+          <li><strong>CUDA, driver ve Docker kurulumu dahil mi?</strong> Kartı teslim almak ile çalışır bir ortam teslim almak farklıdır. Sürüm listesi, GPU görünürlük testi, PyTorch/vLLM kurulumu ve sorumluluk sınırı yazılı olmalıdır.</li>
+          <li><strong>Minimum kiralama süresi nedir?</strong> Pilotun beklenenden kısa sürmesi veya uzaması mümkündür. Başlangıç, uzatma, erken sonlandırma ve kapasite değişikliği koşullarını önceden öğrenin.</li>
+          <li><strong>Yedekleme ve veri silme nasıl yapılır?</strong> Yedek var mı, ne kadar saklanıyor, kim erişiyor ve hizmet bitince hangi kopyalar siliniyor? Hassas verilerde silme prosedürünün kanıtlanabilir olması önemlidir.</li>
+          <li><strong>Teknik destek hangi kapsamda veriliyor?</strong> Ağ sorunu, GPU hatası, driver uyumsuzluğu, container kurulumu ve model optimizasyonu aynı destek kalemi değildir. Yanıt süresini ve kapsam dışı işleri ayırın.</li>
+          <li><strong>Fiyat hangi koşullarda değişir?</strong> KDV, kur, disk, CPU/RAM, kurulum, trafik ve özel ağ bedellerinin dahil olup olmadığını kontrol edin. “Başlangıç fiyatı” ile nihai proje teklifini karıştırmayın.</li>
+          <li><strong>İhtiyaç artarsa geçiş mümkün mü?</strong> Model veya trafik büyüdüğünde A100'e, H100'e ya da birden fazla GPU'ya geçişin nasıl yapılacağını sorun. Disk ve ağ yapısının taşınabilir olması geçiş süresini kısaltabilir.</li>
         </ol>
-        <p>Bu sorular, sadece en ucuz fiyatı değil, projenin çalışır ve sürdürülebilir olmasını değerlendirmenizi sağlar.</p>
+        <h2>Teklifleri aynı formatta isteyin</h2>
+        <p>Her sağlayıcıdan GPU, VRAM, CPU, RAM, disk, lokasyon, kurulum, destek, minimum süre ve vergi bilgisini aynı tabloda vermesini isteyin. Kullanım amacınızı da açık yazın: düşük trafikli inference, uzun fine-tuning, embedding batch'i veya üretim API'si. Böylece bir sağlayıcının yalnızca GPU'yu, diğerinin ise tam sunucu paketini fiyatladığı durumları fark edebilirsiniz.</p>
+        <p>Teklifte belirsiz kalan her kalem, teslimden sonra ek süre veya ek ücret olarak geri dönebilir. Özellikle kurulum, veri taşıma, yedekleme, IP, güvenlik duvarı ve destek saatleri yazılı değilse karar vermeden önce açıklama isteyin.</p>
+        <p>Karşılaştırma notuna teklifin geçerlilik tarihini ve kapasitenin ne zamana kadar rezerve edildiğini de ekleyin. GPU bulunabilirliği, kur ve proje takvimi değişebilir; bugün görünen bir seçenek birkaç hafta sonra aynı koşullarda bulunmayabilir. Yazılı bir özet, hem satın alma onayını hem de teknik ekibin teslim beklentisini aynı hizaya getirir.</p>
+        <h2>Küçük bir kabul testi ekleyin</h2>
+        <p>Sunucu teslim edildiğinde hedef modele yakın bir inference veya kısa eğitim adımı çalıştırın. GPU görünürlüğü, VRAM, disk yazma, ağ erişimi, yeniden başlatma ve loglama kontrollerini kayda alın. Satın alma kararını gerçek iş yüküyle doğrulamak, yalnızca teknik özellik listesine güvenmekten daha değerlidir.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> En ucuz GPU, kapsamı belirsizse en ucuz çözüm olmayabilir. Bu on soruyu teklif formuna ekleyin; OMAY'a da model, trafik ve süre bilgilerini iletin, karşılaştırılabilir bir plan hazırlayalım.</p>
         <a class="button primary" href="../iletisim.html">Teklif Al</a>
       </article>
     </main>

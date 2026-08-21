@@ -10,16 +10,40 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Fine-tuning İçin GPU İhtiyacı | OMAY Blog</title><meta name="description" content="LLM fine-tuning için GPU, VRAM, veri seti ve yazılım ortamı nasıl planlanır?" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Fine-tuning İçin GPU İhtiyacı | OMAY Blog</title><meta name="description" content="Fine-tuning GPU planını model yöntemi, sequence length, batch, checkpoint ve veri güvenliğiyle birlikte kurun." /><link rel="canonical" href="https://www.omay.com.tr/blog/fine-tuning-icin-gpu-ihtiyaci.html" /><meta property="og:type" content="article" /><meta property="og:title" content="Fine-tuning İçin GPU İhtiyacı | OMAY Blog" /><meta property="og:description" content="Fine-tuning GPU planını model yöntemi, sequence length, batch, checkpoint ve veri güvenliğiyle birlikte kurun." /><meta property="og:url" content="https://www.omay.com.tr/blog/fine-tuning-icin-gpu-ihtiyaci.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-a100.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Fine-tuning</p><h1>Fine-tuning İçin GPU İhtiyacı</h1>
         <img class="article-image" src="../assets/gpu-a100.png" alt="A100 GPU ile fine-tuning iş yükü" />
-        <p>Fine-tuning, hazır bir modeli kurum verisine veya belirli bir göreve uyarlama sürecidir. Bu süreçte GPU ihtiyacı model boyutu, eğitim yöntemi, veri seti, batch boyutu ve hedef süreye göre değişir.</p>
-        <p>Küçük denemeler RTX 4090 ile yapılabilir. Daha büyük LLM fine-tuning işleri için A100 80GB daha rahat çalışma alanı sağlar. Çok büyük modeller ve süre hassasiyeti olan işlerde H100 sınıfı değerlendirilir.</p>
-        <p>GPU seçmeden önce veri formatı, hedef model, kullanılacak framework, checkpoint boyutu, eğitim süresi ve çıktı beklentisi netleşmelidir.</p>
+        <p class="article-lede">Fine-tuning, hazır bir modeli belirli bir görev, kurum dili veya alan verisine uyarlama sürecidir. GPU ihtiyacı yalnızca model parametre sayısıyla belirlenmez; eğitim yöntemi, sequence length, batch boyutu, veri formatı, checkpoint politikası ve hedef süre aynı anda hesaba katılır. Bu yüzden “hangi GPU?” sorusundan önce nasıl bir uyarlama yapılacağını netleştirmek gerekir.</p>
+        <h2>Tam eğitim ile adapter yaklaşımını ayırın</h2>
+        <p>Tüm model ağırlıklarını güncelleyen tam fine-tuning, yüksek bellek ve uzun çalışma süresi ister. Optimizer durumları ve gradient'ler ağırlıkların üzerine ek yük getirir. LoRA veya QLoRA gibi adapter yöntemleri ise daha az parametreyi güncelleyerek bellek ihtiyacını düşürebilir. Bu yöntemler her hedefte aynı sonucu vermez; ancak birçok kurumun ilk denemeyi daha erişilebilir bir GPU ile yapmasına yardımcı olur.</p>
+        <p>Bir başka ayrım da modelin eğitim için mi, değerlendirme için mi çalıştırıldığıdır. Veri temizleme, tokenization ve validation adımları GPU dışında da zaman alabilir. Yalnızca eğitim adımına bakıp kapasite seçmek, toplam teslim süresini olduğundan kısa gösterebilir.</p>
+        <h2>VRAM'i belirleyen başlıca değişkenler</h2>
+        <ul>
+          <li><strong>Model boyutu ve hassasiyet:</strong> Tam hassasiyet, düşük bitli veya 4-bit ağırlık seçenekleri farklı bellek kullanır.</li>
+          <li><strong>Sequence length:</strong> Uzun metinler aktivasyon ve attention maliyetini yükseltir.</li>
+          <li><strong>Batch ve gradient accumulation:</strong> Bir adımda işlenen örnek sayısı arttıkça bellek baskısı artar.</li>
+          <li><strong>Yöntem:</strong> Tam fine-tuning ile LoRA/QLoRA aynı kaynak profilini üretmez.</li>
+          <li><strong>Checkpoint ve veri:</strong> Disk, CPU RAM'i ve yazma hızı eğitim akışını etkiler.</li>
+        </ul>
+        <h2>GPU sınıfını nasıl konumlandırmalı?</h2>
+        <p>RTX 4090, küçük model ve adapter tabanlı ilk denemelerde, özellikle sequence length ve batch kontrollü tutulduğunda işe yarayabilir. A100 80GB, daha geniş VRAM, daha büyük batch veya uzun süren kurumsal eğitim döngülerinde daha rahat bir çalışma alanı sağlar. H100, eğitim süresinin kritik olduğu veya model ölçeğinin hesaplama kapasitesini hızla tükettiği projelerde değerlendirilir.</p>
+        <p>Bu sınıflar bir garanti değildir. Hedef modelin gerçek eğitim kodu ve veri biçimiyle kısa bir deneme yapılmadan kesin süre veya kapasite sözü verilmemelidir. Aynı model, framework sürümü, sequence length ve optimizer ayarı değiştiğinde farklı sonuç verebilir.</p>
+        <h2>Planlama ve kabul kriterleri</h2>
+        <ol>
+          <li>Hedef modeli, veri seti boyutunu ve örnek formatını yazılı hale getirin.</li>
+          <li>Full fine-tuning, LoRA veya QLoRA seçeneklerinden hangisinin deneneceğini belirleyin.</li>
+          <li>Sequence length, batch, accumulation ve checkpoint aralığını sabitleyin.</li>
+          <li>Bir saatlik pilotta bellek kullanımını, adım süresini ve hata oranını ölçün.</li>
+          <li>Checkpoint'lerin nerede tutulacağını ve eğitim bitince nasıl teslim edileceğini planlayın.</li>
+        </ol>
+        <p>Veri hassas ise eğitim setinin sunucuya nasıl taşınacağı, erişim yetkileri ve işlem sonu silme prosedürü de GPU seçimi kadar önemlidir. OMAY, fine-tuning teklifini model, yöntem, kullanım süresi ve hazır yazılım ortamıyla birlikte ele alır.</p>
+        <p>Eğitim tamamlandığında yalnızca son checkpoint'i değil, kullanılan veri sürümünü, hyperparameter'ları, tokenizer'ı ve değerlendirme sonuçlarını da saklayın. Aynı ortamın tekrar kurulabilmesi, modelin neden iyileştiğini veya gerilediğini anlamayı sağlar. Bu kayıtlar sonraki GPU kararını da kolaylaştırır; hangi aşamada bellek, hangi aşamada disk veya CPU darboğazı yaşandığı görünür hale gelir.</p>
+        <p>Bu kayıtlar, ekip içinde sonucu paylaşmayı da kolaylaştırır. Başarılı bir deneme yalnızca bir model dosyası değil, tekrar edilebilir bir deney tarifidir.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> Fine-tuning için GPU seçimi model boyutundan ibaret değildir. Yöntemi, sequence length'i, batch'i ve hedef süreyi ölçün; küçük adapter pilotlarında RTX 4090, geniş bellekli veya zaman kritik işlerde A100/H100 daha uygun olabilir.</p>
         <a class="button primary" href="../iletisim.html">Fine-tuning İçin Görüşelim</a>
       </article>
     </main>

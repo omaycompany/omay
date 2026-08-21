@@ -10,16 +10,41 @@
 
       gtag('config', 'G-74ZWXZLFKK');
     </script>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Inference İçin GPU Seçimi | OMAY Blog</title><meta name="description" content="LLM ve AI inference işleri için GPU seçerken VRAM, gecikme ve kapasite nasıl değerlendirilir?" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Inference İçin GPU Seçimi | OMAY Blog</title><meta name="description" content="Inference GPU'sunu VRAM, KV cache, gecikme, throughput ve eşzamanlı kullanıcı hedefleriyle seçme rehberi." /><link rel="canonical" href="https://www.omay.com.tr/blog/inference-icin-gpu-secimi.html" /><meta property="og:type" content="article" /><meta property="og:title" content="Inference İçin GPU Seçimi | OMAY Blog" /><meta property="og:description" content="Inference GPU'sunu VRAM, KV cache, gecikme, throughput ve eşzamanlı kullanıcı hedefleriyle seçme rehberi." /><meta property="og:url" content="https://www.omay.com.tr/blog/inference-icin-gpu-secimi.html" /><meta property="og:image" content="https://www.omay.com.tr/assets/gpu-rtx-4090.png" /><link rel="icon" href="../assets/omay-mark.svg" type="image/svg+xml" /><link rel="stylesheet" href="../styles.css" /></head>
   <body class="site-page">
     <header class="site-header inner-header" aria-label="Ana navigasyon"><div class="header-inner"><a class="brand" href="../index.html" aria-label="OMAY ana sayfa"><img src="../assets/omay-logo.svg" alt="OMAY" /></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menüyü aç"><span></span><span></span><span></span></button><nav id="site-navigation"><a href="../index.html">Ana Sayfa</a><a href="../yapay-zeka-hizmetleri.html">AI Hizmetleri</a><a href="../gpularimiz.html">GPU'larımız</a><a href="../blog.html" aria-current="page">Blog</a><a href="../iletisim.html">İletişim</a><a class="nav-cta" href="../iletisim.html">Teklif Al</a></nav></div></header>
     <main class="site-main article-main">
       <article class="article">
         <p class="eyebrow">Inference</p><h1>Inference İçin GPU Seçimi</h1>
         <img class="article-image" src="../assets/gpu-rtx-4090.png" alt="RTX 4090 GPU ile inference iş yükü" />
-        <p>Inference, eğitilmiş bir modeli canlı iş yükünde çalıştırmaktır. Chatbot, sınıflandırma, görsel üretim, OCR, öneri sistemi veya embedding API gibi servisler inference kapsamına girer.</p>
-        <p>GPU seçiminde ilk soru modelin belleğe sığıp sığmadığıdır. Küçük ve quantized modeller için RTX 4090 yeterli olabilir. Daha büyük modeller veya daha yüksek eşzamanlı kullanıcı sayısı için A100 veya H100 sınıfı değerlendirilir.</p>
-        <p>Sadece VRAM değil, gecikme hedefi, batch boyutu, kullanıcı trafiği, model yükleme süresi ve API mimarisi de kapasite planını etkiler.</p>
+        <p class="article-lede">Inference, eğitilmiş veya uyarlanmış bir modeli gerçek istekler karşısında çalıştırmaktır. Chatbot, OCR, sınıflandırma, arama, embedding, görsel üretim ve ses çözümleme servisleri bu kapsama girer. Doğru GPU seçimi, “model açılıyor mu?” sorusundan daha geniştir: ilk yanıtın ne kadar sürede geldiği, saniyede kaç isteğin taşındığı ve yoğun anda kaç kullanıcının bekletildiği birlikte ölçülmelidir.</p>
+        <h2>Önce servis hedefini tanımlayın</h2>
+        <p>Bir iç ekip aracı ile müşteriye açık API'nin beklentisi aynı değildir. İç araçta birkaç saniyelik gecikme kabul edilebilirken canlı destek botunda kullanıcı bekleme süresi daha kritik olabilir. Başlangıçta aşağıdaki hedefleri yazın:</p>
+        <ul>
+          <li>İlk token veya ilk sonuç için kabul edilebilir gecikme</li>
+          <li>Ortalama ve yoğun saatlerde beklenen eşzamanlı istek sayısı</li>
+          <li>İstek başına yaklaşık giriş ve çıkış token miktarı</li>
+          <li>Kesintisiz çalışma, bakım penceresi ve hata toleransı beklentisi</li>
+          <li>Modelin güncellenme sıklığı ve yeni sürüme geçiş yöntemi</li>
+        </ul>
+        <h2>VRAM hesabı yalnızca ağırlık boyutu değildir</h2>
+        <p>Model ağırlıkları, KV cache, aktivasyonlar, tokenizer, framework ve işletim payı aynı GPU belleğini paylaşır. Uzun bağlam veya yüksek concurrency KV cache'i büyütür. Quantization bellek ihtiyacını azaltabilir; fakat hız, kalite ve araç uyumluluğu modelden modele değişir. Bu nedenle model dosyası 20 GB ise 24 GB kart kesin yeterlidir demek risklidir. Her zaman ölçülebilir bir güvenlik payı bırakın.</p>
+        <h2>RTX 4090, A100 ve H100 nasıl ayrılır?</h2>
+        <p>RTX 4090, düşük veya orta trafik, prototip ve daha küçük quantized modeller için maliyet açısından iyi bir başlangıç olabilir. A100 80GB, daha büyük ağırlıklar, uzun context, daha yüksek batch ve kurumsal süreklilik beklentilerinde daha geniş alan sunar. H100 ise zaman hassasiyeti, yoğun trafik veya yüksek hesaplama kapasitesinin doğrudan ürün değerine dönüştüğü ortamlarda değerlendirilir.</p>
+        <p>Bu sınıflandırma kesin bir model tablosu değildir. Aynı GPU'da farklı serving motorları ve batch ayarları farklı sonuç verir. CPU, RAM, NVMe ve ağ da modelin yüklenme süresini ve veri hazırlama darboğazını etkiler.</p>
+        <h2>Benchmark senaryosu hazırlayın</h2>
+        <ol>
+          <li>Üretimde kullanılacak model sürümünü ve quantization biçimini sabitleyin.</li>
+          <li>Gerçek prompt'lara benzeyen kısa ve uzun örneklerden bir test kümesi oluşturun.</li>
+          <li>Tek kullanıcı, hedef concurrency ve yoğunluk artışı senaryolarını ayrı çalıştırın.</li>
+          <li>İlk sonuç süresi, toplam throughput, VRAM, CPU ve hata oranını kaydedin.</li>
+          <li>Model yeniden yüklendiğinde ve sunucu yeniden başladığında süreyi tekrarlayın.</li>
+        </ol>
+        <h2>Operasyon da kapasitenin parçasıdır</h2>
+        <p>Inference ortamında model sunucusunun logları, health check'leri, kaynak limitleri ve gerektiğinde geri dönüş planı olmalıdır. Kullanıcı trafiği büyüdüğünde yalnızca daha güçlü bir GPU almak yerine batching, cache, quantization veya birden fazla replica seçenekleri karşılaştırılabilir. Bu kararları baştan belgelemek, kapasite artışında paniği azaltır.</p>
+        <p>Ölçüm sırasında maliyet başına işi de takip edin. Bir kart daha hızlı olabilir, fakat düşük trafik dönemlerinde kaynak boşa kalıyorsa daha küçük bir kart veya otomatik ölçekleme daha iyi sonuç verebilir. Tersine, kuyrukta bekleyen isteklerin müşteri deneyimine ve ekip verimliliğine etkisi yüksekse daha pahalı GPU toplam operasyon maliyetini azaltabilir. Kararı tek bir benchmark sayısına değil, kullanım profilinin tamamına bağlayın.</p>
+        <p>Son olarak, test verisini gerçek üretim verisinin hassasiyetini ihlal etmeden seçin. Maskelenmiş örnekler ve temsil edici trafik, performans ölçümünü güvenli tutarken kapasite planının gerçekçi kalmasına yardımcı olur.</p>
+        <p class="article-note"><strong>Kısa cevap:</strong> Inference GPU'su model belleği, gecikme, throughput ve concurrency birlikte ölçülerek seçilir. OMAY'a model adı, hedef trafik, yanıt süresi ve veri lokasyonunu iletin; kart sınıfını benchmark'a göre planlayalım.</p>
         <a class="button primary" href="../iletisim.html">Inference Planı İste</a>
       </article>
     </main>
