@@ -867,6 +867,95 @@ textarea:focus {
   font-weight: 850;
 }
 
+.blog-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.blog-hub-card {
+  display: flex;
+  min-height: 214px;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.blog-hub-card:hover {
+  border-color: rgba(25, 188, 168, 0.52);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.blog-hub-card h2 {
+  margin: 9px 0 10px;
+  color: var(--ink);
+  font-size: 1.28rem;
+  letter-spacing: -0.025em;
+}
+
+.blog-hub-card p:not(.eyebrow) {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.blog-hub-link {
+  margin-top: auto;
+  color: var(--accent-dark);
+  font-weight: 850;
+}
+
+.blog-secondary {
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 22%, rgba(25, 188, 168, 0.18), transparent 33%),
+    var(--dark);
+}
+
+.blog-secondary-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.blog-secondary h2 {
+  max-width: 680px;
+  margin: 8px 0 12px;
+  color: #fff;
+}
+
+.blog-secondary p:not(.eyebrow) {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.blog-secondary .button {
+  flex: 0 0 auto;
+}
+
+.category-intro {
+  padding-bottom: 36px;
+}
+
+.category-intro p {
+  max-width: 800px;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.category-intro a {
+  color: var(--accent-dark);
+  font-weight: 850;
+}
+
 .article-main {
   padding: 72px max(24px, calc((100vw - var(--page)) / 2));
 }
@@ -1036,6 +1125,10 @@ textarea:focus {
   .blog-grid {
     grid-template-columns: 1fr;
   }
+
+  .blog-hub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 820px) {
@@ -1115,6 +1208,10 @@ textarea:focus {
 
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-secondary-inner {
+    display: grid;
   }
 }
 
@@ -1220,6 +1317,10 @@ textarea:focus {
 
   .blog-card img {
     height: 190px;
+  }
+
+  .blog-hub-grid {
+    grid-template-columns: 1fr;
   }
 
   .article-main {
